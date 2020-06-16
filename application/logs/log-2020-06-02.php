@@ -1,0 +1,21 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2020-06-02 04:17:27 --> 404 Page Not Found --> ads.txt
+ERROR - 2020-06-02 05:38:07 --> 404 Page Not Found --> th1s_1s_a_4o4.html
+ERROR - 2020-06-02 05:38:08 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:18:52 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:18:54 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:18:56 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:18:57 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:13 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:15 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:15 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:15 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:18 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:19 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:19 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:25 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:25 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 10:19:27 --> 404 Page Not Found --> assets
+ERROR - 2020-06-02 12:35:18 --> 404 Page Not Found --> wp
+ERROR - 2020-06-02 12:35:18 --> 404 Page Not Found --> wp

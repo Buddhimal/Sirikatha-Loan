@@ -1,0 +1,22 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2020-02-28 03:57:26 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 03:57:30 --> 404 Page Not Found --> favicon.ico
+ERROR - 2020-02-28 07:15:51 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 07:15:52 --> 404 Page Not Found --> sitemap.xml
+ERROR - 2020-02-28 07:15:53 --> 404 Page Not Found --> ads.txt
+ERROR - 2020-02-28 07:16:02 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 07:16:03 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 07:16:10 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 07:16:11 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 10:28:14 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 10:28:15 --> 404 Page Not Found --> assets
+ERROR - 2020-02-28 14:13:43 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 14:13:43 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 14:13:44 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 15:56:01 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 15:56:05 --> 404 Page Not Found --> favicon.ico
+ERROR - 2020-02-28 22:52:13 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-28 22:52:28 --> 404 Page Not Found --> ads.txt
+ERROR - 2020-02-28 23:40:46 --> 404 Page Not Found --> th1s_1s_a_4o4.html
+ERROR - 2020-02-28 23:40:46 --> 404 Page Not Found --> assets

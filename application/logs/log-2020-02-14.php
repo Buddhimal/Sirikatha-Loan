@@ -1,0 +1,27 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2020-02-14 02:08:42 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-14 02:09:02 --> 404 Page Not Found --> ads.txt
+ERROR - 2020-02-14 04:22:15 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:16 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:16 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:17 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:24 --> 404 Page Not Found --> favicon.ico
+ERROR - 2020-02-14 04:22:29 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:29 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:30 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:36 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:36 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:37 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 04:22:39 --> 404 Page Not Found --> favicon.ico
+ERROR - 2020-02-14 06:41:02 --> 404 Page Not Found --> th1s_1s_a_4o4.html
+ERROR - 2020-02-14 09:03:30 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-14 09:07:30 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 09:07:32 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 09:07:36 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 09:07:38 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 13:41:04 --> 404 Page Not Found --> robots.txt
+ERROR - 2020-02-14 18:25:41 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 18:25:43 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 18:25:43 --> 404 Page Not Found --> assets
+ERROR - 2020-02-14 18:25:44 --> 404 Page Not Found --> assets
