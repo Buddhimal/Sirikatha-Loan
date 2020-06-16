@@ -313,8 +313,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHP Script.dashboard.php" />
       <item itemvalue="PHP Script.Welcome.php" />
+      <item itemvalue="PHP Script.dashboard.php" />
       <item itemvalue="PHP Web Page.Orange" />
     </list>
     <recent_temporary>
