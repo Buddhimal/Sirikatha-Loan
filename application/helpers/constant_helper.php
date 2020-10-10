@@ -20,7 +20,7 @@ if ( ! function_exists('checkLogin'))
     function last_query(){
         $ab =& get_instance();
 
-        var_dump($ab->db->last_query());
+        echo($ab->db->last_query());
     }
 
 }

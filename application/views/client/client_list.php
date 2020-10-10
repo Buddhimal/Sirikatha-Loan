@@ -50,7 +50,7 @@
                             <td><?php echo $client->loan_name; ?></td>
                             <td><?php echo number_format($client->loan_amount, 2, '.', ','); ?></td>
                             <td><?php echo number_format($client->installment_amount, 2, '.', ','); ?></td>
-                            <td><?php if ($client->active_status == 1) echo "<span class='label label-success'>Active</span>"; else echo "<span class='label label-danger'>De-Active</span>"; ?></td>
+                                <td><?php if ($client->active_status == 1) echo "<span class='label label-success'>Active</span>"; else echo "<span class='label label-danger'>In-Active</span>"; ?></td>
                             <td>
                                 <div class="row">
                                     <a href="<?php echo base_url() ?>client_profile?client_id=<?php echo base64_encode($client->id) ?>"><i
@@ -58,8 +58,8 @@
                                                 class="fa fa-eye"> </i></a>
                                     <a href="<?php echo base_url() ?>edit_client?client_id=<?php echo base64_encode($client->id) ?>">
                                         <i title="Edit" style="font-size: 18px; color: orange" class="fa fa-edit"></i></a>
-                                    <a href="<?php echo base_url() ?>inactive_client?client_id=<?php echo base64_encode($client->id) ?>">
-                                        <i title="Inactive" style="font-size: 18px; color: red" class="fa fa-ban"></i></a>
+                                    <a  >
+                                        <i title="Inactive" style="font-size: 18px; color: red" class="fa fa-ban" id="inactive_client" onclick="inactice_client('<?php echo base64_encode($client->id) ?>')"></i></a>
 
                                 </div>
                             </td>
@@ -74,10 +74,15 @@
     </div>
 </div>
 
+<script type="text/javascript" src="<?php echo base_url() ?>js/client_list.js"></script>
+
 
 
 
 <script>
+
+    var base_url= "<?php echo base_url() ?>"
+
     $(document).ready(function () {
         App.init();
         TableManageButtons.init();

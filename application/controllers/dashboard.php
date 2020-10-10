@@ -214,6 +214,13 @@ GROUP BY
     public function inactive_client()
     {
         $client_id = base64_decode($this->input->get_post('client_id'));
+
+        $this->db->query("update  sirikatha_client set active_status=0 where id='$client_id'");
+
+        $data['status'] = "success";
+
+        echo json_encode($data);
+
     }
 
     public function blacklist_client()
