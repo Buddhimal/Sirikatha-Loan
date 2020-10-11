@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <?php
-                        if ($_GET['type'] == "paid") { ?>
+                        if (isset($_GET['type']) && $_GET['type'] == "paid") { ?>
                             <div class="alert alert-success" role="alert">
                                 <?php
                                 echo "Payment Added Successfully"; ?>
