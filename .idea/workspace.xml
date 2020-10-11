@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="add payment option">
+    <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/make_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/make_payment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +125,7 @@
       <workItem from="1593116665931" duration="182000" />
       <workItem from="1593379890533" duration="1854000" />
       <workItem from="1602351499799" duration="3052000" />
-      <workItem from="1602356231749" duration="8702000" />
+      <workItem from="1602356231749" duration="8794000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -156,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602444575824</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix Bugs">
+      <created>1602444750275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602444750275</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,13 +171,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done some changes" />
     <MESSAGE value="add payment option" />
-    <option name="LAST_COMMIT_MESSAGE" value="add payment option" />
+    <MESSAGE value="Fix Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Bugs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2" timestamp="1602444724681">
+    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2" timestamp="1602444749775">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602444724681" />
+    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602444749775" />
     <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1602352072043">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -180,10 +187,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602354022682" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602444577737">
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602444752368">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602444577737" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602444752368" />
     <state x="652" y="313" key="git4idea.merge.GitPullDialog" timestamp="1602351516463">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
