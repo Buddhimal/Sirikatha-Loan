@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/client_list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/make_payment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/constant_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/constant_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/logs/log-2020-06-16.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2020-06-16.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/client_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/client_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/client/client_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/client_profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/loan/make_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/make_payment.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,43 +25,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>select_available_group_members</find>
-      <find>test</find>
-      <find>sweet</find>
-      <find>Select Client</find>
-      <find>select_clients_for_group</find>
-      <find>Information</find>
-      <find>comm</find>
-      <find>client Le</find>
-      <find>datepicker-autoClose</find>
-      <find>next_installment</find>
-      <find>assets/css</find>
-      <find>top_menu</find>
-      <find>https://code.highcharts.com/highcharts.js</find>
-      <find>uri_protocol</find>
-      <find>client_group</find>
-      <find>$loan-&gt;loan_name</find>
-      <find>instalment_amount</find>
-      <find>client_list</find>
-      <find>select_client_details</find>
-      <find>RewriteBase</find>
-      <find>index.php</find>
-      <find>index.php/</find>
-      <find>site_</find>
-      <find>enable_query_strings</find>
-      <find>call</find>
-      <find>site</find>
-      <find>index</find>
-      <find>loan_list</find>
-      <find>sp_getLoanDetails</find>
-      <find>inactive_client</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>loan-date</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +44,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyNumber" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/loan" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,15 +52,15 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Sirikatha\application\views\loan" />
       <recent name="C:\wamp64\www\Sirikatha\js" />
       <recent name="D:\Softwares\wamp64\www\SirikathaLoan\application\views\loan" />
       <recent name="D:\Softwares\wamp64\www\SirikathaLoan\js" />
       <recent name="D:\wamp64\www\SirikathaLoan\application\views\client" />
-      <recent name="D:\wamp64\www\SirikathaLoan\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\ci_template\application\third_party\PHPExcel" />
@@ -169,21 +130,57 @@
       <workItem from="1593115902041" duration="734000" />
       <workItem from="1593116665931" duration="182000" />
       <workItem from="1593379890533" duration="1854000" />
-      <workItem from="1602351499799" duration="443000" />
+      <workItem from="1602351499799" duration="3052000" />
+      <workItem from="1602356231749" duration="8052000" />
     </task>
+    <task id="LOCAL-00001" summary="Done some changes">
+      <created>1602352092295</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602352092295</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Done some changes">
+      <created>1602352331900</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602352331900</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Done some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done some changes" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1602351899296">
+    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2" timestamp="1602352331329">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602351899296" />
+    <state x="585" y="111" width="978" height="828" key="CommitChangelistDialog2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602352331329" />
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1602352072043">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602352072043" />
+    <state x="461" y="170" key="SettingsEditor" timestamp="1602354022682">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602354022682" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602352333531">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602352333531" />
     <state x="652" y="313" key="git4idea.merge.GitPullDialog" timestamp="1602351516463">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="652" y="313" key="git4idea.merge.GitPullDialog/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602351516463" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602354016487">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/-1600.0.1600.870@0.0.1920.1050" timestamp="1602354016487" />
   </component>
 </project>

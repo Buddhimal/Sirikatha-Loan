@@ -124,7 +124,7 @@
     <script src="<?php echo base_url() ?>assets/js/table-manage-buttons.demo.min.js"></script>
 
     <script type="text/javascript" src="<?php echo base_url() ?>js/sweetaleart.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 
 </head>
 <!--<body class="pace-top bg-white">-->

@@ -442,29 +442,34 @@ GROUP BY
 
         $loan_id = base64_decode($this->input->get_post('loan_id'));
 
+        if ($this->input->post() != null && sizeof($this->input->post()) > 0) {
+            $loan_id = $this->input->get_post('loan_id_pk');
+            $instalment_amount = $this->input->get_post('instalment_amount');
+            $amount_paid = $this->input->get_post('amount_paid');
+            $date_paid = $this->input->get_post('date_paid');
 
-//        $res = $this->db->query("SELECT
-//                                    l.id,
-//                                    l.loan_id,
-//                                    c.client_id,
-//                                    c.client_name,
-//                                    UPPER(lt.loan_name ) loan_name,
-//                                    CAST(l.loan_date AS DATE) loan_date,
-//                                    l.loan_amount,
-//                                    l.installment_amount,
-//                                    l.number_of_installments,
-//                                    CAST(l.loan_end_date AS DATE) loan_end_date,
-//                                    l.payable_amount,
-//                                    l.loan_status,
-//                                    CAST(l.last_paid_date AS DATE) last_paid_date,
-//                                    l.total_paid_amount
-//                                FROM
-//                                    sirikatha_loan AS l
-//                                    INNER JOIN sirikatha_client AS c ON l.client_id = c.id
-//                                    INNER JOIN sirikatha_loan_type AS lt ON l.loan_type_id = lt.id
-//                                WHERE l.id=$loan_id");
+            $number_of_instalments = floor($amount_paid / $instalment_amount);
 
-//        $res = $this->db->query("CALL sp_getLoanDetails");
+            $data['loan_id'] = $loan_id;
+            $data['payment_for_date'] = date("Y-m-d", strtotime($date_paid));;
+            $data['amount'] = $amount_paid;
+            $data['installments'] = $number_of_instalments;
+            $data['payment_type'] = 'CASH';
+            $data['payment_date'] =  date('Y-m-d');
+            $data['created_by'] = $this->session->userdata('name');
+
+            $res = $this->db->query("select * from sirikatha_loan where loan_id='" . $loan_id . "'");
+            if ($res->num_rows() == 0) {
+                $this->db->insert('sirikatha_loan_payment', $data);
+
+                $data['msg'] = "Payment Added Successfully";
+                $data['class_alert'] = "alert-success";
+
+                redirect('make_payment?type=paid&loan_id='.base64_encode($loan_id), 'refresh');
+            }
+        }
+
+
         $res = $result = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id,''));
 
         $data['loan_details'] = $res;
