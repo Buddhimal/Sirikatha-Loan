@@ -57,8 +57,11 @@ GROUP BY
         $data['loans'] = $this->db->query("SELECT
                                             sirikatha_loan_type.id, 
                                             UPPER( sirikatha_loan_type.loan_name ) AS loan_name, 
+                                            UPPER( sirikatha_loan_type.loan_name ) AS label, 
                                             COUNT(sirikatha_loan.id) AS count, 
+                                            COUNT(sirikatha_loan.id) AS value, 
                                             sirikatha_loan_type.color, 
+                                            sirikatha_loan_type.class, 
                                             sirikatha_loan_type.icon
                                         FROM
                                             sirikatha_loan_type
@@ -74,6 +77,10 @@ GROUP BY
                                             sirikatha_loan_type.icon, 
                                             sirikatha_loan_type.color
                                         ORDER BY sirikatha_loan_type.id");
+
+
+        $data['loan_count'] = $this->db->query('CALL sp_get_loan_count')->result();
+
 
         $this->load->view('dashboard', $data);
         $this->load->view('footer');
@@ -430,7 +437,7 @@ GROUP BY
 //        die();
 
 //        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails');
-        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails(?,?)', array('',$loan_type_id));
+        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails(?,?)', array('', $loan_type_id));
 
         $this->load->view('loan/loan_list', $data);
         $this->load->view('footer');
@@ -455,7 +462,7 @@ GROUP BY
             $data['amount'] = $amount_paid;
             $data['installments'] = $number_of_instalments;
             $data['payment_type'] = 'CASH';
-            $data['payment_date'] =  date('Y-m-d');
+            $data['payment_date'] = date('Y-m-d');
             $data['created_by'] = $this->session->userdata('name');
 
             $res = $this->db->query("select * from sirikatha_loan where loan_id='" . $loan_id . "'");
@@ -465,12 +472,12 @@ GROUP BY
                 $data['msg'] = "Payment Added Successfully";
                 $data['class_alert'] = "alert-success";
 
-                redirect('make_payment?type=paid&loan_id='.base64_encode($loan_id), 'refresh');
+                redirect('make_payment?type=paid&loan_id=' . base64_encode($loan_id), 'refresh');
             }
         }
 
 
-        $res = $result = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id,''));
+        $res = $result = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id, ''));
 
         $data['loan_details'] = $res;
 
