@@ -5,6 +5,13 @@
         <!-- begin sidebar user -->
 
         <ul class="nav">
+            <li class="nav-profile">
+
+                <div class="info">
+                    <p class="" style="font-size: 20px">SIRIKATHA</p>
+                    <small class="">Loan System V 1.2</small>
+                </div>
+            </li>
 
             <li class="dropdown navbar-user">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -49,14 +56,14 @@
             <li class="nav-header">Navigation</li>
             <li class="<?php if (($active_tab) == 'dashboard') echo 'active' ?>">
                 <a href="<?php echo base_url(); ?>dashboard">
-                    <i class="icon-speedometer bg-grey-darker"></i>
+                    <i class="icon-speedometer bg-success"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="has-sub <?php if (($active_tab) == 'add_new_client' || ($active_tab) == 'client_list') echo 'active' ?>">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-user bg-grey-darker"></i>
+                    <i class="fa fa-user bg-orange"></i>
                     <span>Client</span>
                 </a>
                 <ul class="sub-menu ">
@@ -69,7 +76,7 @@
             <li class="has-sub <?php if (($active_tab) == 'client_group' || ($active_tab) == 'group_list') echo 'active' ?>">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-group bg-grey-darker"></i>
+                    <i class="fa fa-group bg-purple"></i>
                     <span>Client Groups</span>
                 </a>
                 <ul class="sub-menu">
@@ -83,7 +90,7 @@
             <li class="has-sub <?php if (($active_tab) == 'add_new_loan' || ($active_tab) == 'loan_list') echo 'active' ?>">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-money bg-grey-darker"></i>
+                    <i class="fa fa-money bg-aqua"></i>
                     <span>Loans</span>
                 </a>
                 <ul class="sub-menu">
@@ -98,7 +105,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-gear bg-grey-darker"></i>
+                    <i class="fa fa-gear bg-red"></i>
                     <span>Administrator</span>
                 </a>
                 <ul class="sub-menu">

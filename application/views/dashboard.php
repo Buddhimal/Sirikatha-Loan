@@ -41,23 +41,30 @@
         <div class="widget-chart with-sidebar bg-black">
             <div class="widget-chart-content">
                 <h4 class="chart-title">
-                    Loan Analytics
+                    Loan Analytics for 2020
                     <small>Loans issued in months</small>
                 </h4>
                 <div id="line-chart" class="morris-inverse" style="height: 400px;"></div>
             </div>
             <div class="widget-chart-sidebar bg-black-darker">
                 <div class="chart-number">
-                    1,225,729
-                    <small>Total Loans</small>
+                    <?php
+                    echo $total_loans ?>
+                    Loans
                 </div>
-                <div id="visitors-donut-chart" class="morris-chart" style="height: 250px"></div>
+                <div id="visitors-donut-chart" class="morris-chart" style="height: 280px"></div>
                 <ul class="chart-legend">
-                    <li><i class="fa fa-circle-o fa-fw text-success m-r-5"></i> 34.0% <span>Asiri</span></li>
-                    <li><i class="fa fa-circle-o fa-fw text-warning m-r-5"></i> 56.0% <span>Siriliya</span></li>
-                    <li><i class="fa fa-circle-o fa-fw text-danger m-r-5"></i> 56.0% <span>Siriyawi</span></li>
-                    <li><i class="fa fa-circle-o fa-fw text-primary m-r-5"></i> 56.0% <span>Sirisetha</span></li>
-                    <li><i class="fa fa-circle-o fa-fw text-info m-r-5"></i> 56.0% <span>Sirikatha Special</span>
+
+                    <?php
+                    foreach ($loan_summary->result() as $loan) { ?>
+
+                        <li><i class="fa fa-circle-o fa-fw <?php
+                            echo $loan->text_class ?> m-r-5"></i> <?php
+                            echo number_format($loan->average, '2') ?>% <span><?php
+                                echo $loan->loan_name ?></span></li>
+                    <?php
+                    } ?>
+
                     </li>
                 </ul>
             </div>

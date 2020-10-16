@@ -54,6 +54,9 @@ GROUP BY
         $object['active_tab'] = "dashboard";
         $this->load->view('top_menu', $object);
 
+        $query = $this->db->query("select count(*) as total from sirikatha_loan");
+        $data['total_loans'] = $query->row()->total;
+
         $data['loans'] = $this->db->query("SELECT
                                             sirikatha_loan_type.id, 
                                             UPPER( sirikatha_loan_type.loan_name ) AS loan_name, 
@@ -77,6 +80,25 @@ GROUP BY
                                             sirikatha_loan_type.icon, 
                                             sirikatha_loan_type.color
                                         ORDER BY sirikatha_loan_type.id");
+
+        $data['loan_summary'] = $this->db->query("SELECT
+                                            sirikatha_loan_type.id,
+                                                UPPER( sirikatha_loan_type.loan_name ) AS loan_name,
+                                                sirikatha_loan_type.const,
+                                                (COUNT( sirikatha_loan.id )/ (select count(*) from sirikatha_loan) )*100 AS average,
+                                                sirikatha_loan_type.text_class
+                                            FROM
+                                                sirikatha_loan_type
+                                                LEFT JOIN sirikatha_loan ON sirikatha_loan_type.id = sirikatha_loan.loan_type_id 
+                                            WHERE
+                                                sirikatha_loan_type.active_status = 1 
+                                            GROUP BY
+                                                sirikatha_loan_type.loan_name,
+                                                sirikatha_loan_type.const,
+                                                sirikatha_loan_type.text_class,
+                                                sirikatha_loan_type.id
+                                                
+                                                ORDER BY sirikatha_loan_type.id");
 
 
         $data['loan_count'] = $this->db->query('CALL sp_get_loan_count')->result();
