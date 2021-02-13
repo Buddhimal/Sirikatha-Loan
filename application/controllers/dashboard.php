@@ -12,9 +12,9 @@ class Dashboard extends CI_Controller
         $this->load->model('mmodel');
         $this->load->model('user/muser');
 
-//        if (is_login() == '') {
-//            redirect(site_url());
-//        }
+        if (is_login() == '') {
+            redirect(site_url());
+        }
     }
 
     /**
