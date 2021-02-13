@@ -11,14 +11,6 @@
         <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
             <div class="panel-heading">
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i
-                                class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i
-                                class="fa fa-repeat"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
-                       data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"
-                       data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
                 <h4 class="panel-title">Loan Details</h4>
             </div>
@@ -209,12 +201,12 @@
 <script src="<?php echo base_url() ?>assets/plugins/select2/dist/js/select2.min.js"></script>
 <script language="JavaScript" src="https://rhashemian.github.io/js/NumberFormat.js"></script>
 <script>
-
-
+    var spinner = $('#loader');
 
 
     $('#group_id').on('change', function () {
 
+        spinner.show();
 
         $.ajax({
             url: '<?php echo base_url()?>dashboard/select_clients_for_group',
@@ -237,6 +229,7 @@
                     $("#client_id").append("<option value='" + id + "'>" + client_id + "-" + name + "</option>");
 
                 }
+                spinner.hide();
             }
         });
     });
@@ -244,6 +237,7 @@
 
     $('#client_id').on('change', function () {
 
+        spinner.show();
 
         $.ajax({
             url: '<?php echo base_url()?>dashboard/select_client_level',
@@ -253,20 +247,18 @@
             dataType: 'json',
             success: function (response) {
 
-                // var len = response.length;
-
-                // alert(response.loan_level);
-
                 $("#client_level").val((response.loan_level));
 
-                // $("#client_level").text(response.loan_level);
-
+                spinner.hide();
             }
+
         });
     });
 
 
     $('#loan_type_id').on('change', function () {
+
+        spinner.show();
 
         var loan_date = document.getElementById('loan-date').value;
         var first_date = document.getElementById('first_installment').value;
@@ -279,24 +271,16 @@
             dataType: 'json',
 
             success: function (response) {
-
-                // var len = response.length;
-
-                // alert(response.loan_level);
                 $("#loan_amount").val(numberWithCommas(response.loan_amount));
                 $("#loan_installment").val(numberWithCommas(response.instalment_amount));
                 $("#no_of_installment").val(numberWithCommas(response.numbe_of_installments));
-                $("#total_amount").val(numberWithCommas(response.instalment_amount*response.numbe_of_installments));
-
-                // $("#client_level").text(response.loan_level);
-
-
-
-                if(loan_date !=''){
+                $("#total_amount").val(numberWithCommas(response.instalment_amount * response.numbe_of_installments));
+                if (loan_date != '') {
                     var ld = new Date(first_date);
-                    ld.setDate(ld.getDate() + response.numbe_of_installments*7);
+                    ld.setDate(ld.getDate() + response.numbe_of_installments * 7);
                     $("#last_installment").val(moment(ld).format('YYYY-MMM-DD'));
                 }
+                spinner.hide();
 
             }
         });
@@ -305,51 +289,42 @@
 
     $('#loan-date').on('change', function () {
 
-        // var d = new Date();
         var loan_date = document.getElementById('loan-date').value;
         var installments = document.getElementById('no_of_installment').value;
         var loan_type = document.getElementById('loan_type_id').value;
-
-
         if (loan_date != '') {
-            // alert(loan_date);
-
-            // loan_date=moment(loan_date).format('YYYY-MM-DD');
-
+            spinner.show();
             var d = new Date(loan_date);
             var todat = d.getDay();
 
             d.setDate(d.getDate() + (3 + 7 - d.getDay()) % 7);
 
-            // alert(todat);
-
-            if (todat == 3){
+            if (todat == 3) {
                 d.setDate(d.getDate() + 7);
             }
 
-            // alert(d);
-            // alert(moment(d).format('YYYY-MM-DD'));
-            // $("#first_installment").val(moment(d).format('YYYY-MM-DD'));
             $("#first_installment").val(moment(d).format('YYYY-MMM-DD'));
-        } else{
+        } else {
             $("#d.setDate(d.getDate() + 7);").val('');
         }
+        spinner.show();
 
-        if(loan_type!=''){
-            d.setDate(d.getDate() + installments*7);
+
+        if (loan_type != '') {
+            spinner.show();
+            d.setDate(d.getDate() + installments * 7);
             $("#last_installment").val(moment(d).format('YYYY-MMM-DD'));
         }
 
+        spinner.hide();
+
 
     });
-
-    // alert(numberWithCommas(25000));
 
     function numberWithCommas(x) {
 
         return FormatNumberBy3(x, ".", ",");
 
-        // return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
     $(document).ready(function () {

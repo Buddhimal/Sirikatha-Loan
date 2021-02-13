@@ -167,14 +167,34 @@ class MModel extends CI_Model
 
     public function select_available_groups()
     {
+//        return $this->db->query("SELECT
+//                                    lg.id,
+//                                    lg.group_id,
+//                                    lg.group_name
+//                                FROM
+//                                    sirikatha_loan_group AS lg
+//                                WHERE
+//                                    lg.active_status = 1");
+
         return $this->db->query("SELECT
-                                    lg.id,
-                                    lg.group_id,
-                                    lg.group_name 
+                                    lg.id, 
+                                    lg.group_id, 
+                                    lg.group_name
                                 FROM
-                                    sirikatha_loan_group AS lg 
+                                    sirikatha_loan_group AS lg
+                                    INNER JOIN
+                                    sirikatha_loan_group_client
+                                    ON 
+                                        lg.id = sirikatha_loan_group_client.sirikatha_loan_group_id
                                 WHERE
-                                    lg.active_status = 1");
+                                    lg.active_status = 1 
+                                    AND sirikatha_loan_group_client.sirikatha_client_id NOT IN (SELECT
+                                    sirikatha_loan.client_id
+                                FROM
+                                    sirikatha_loan
+                                WHERE
+                                    sirikatha_loan.loan_status IN ( 'ACTIVE','BLACKLISTED'))");
+
     }
 
 

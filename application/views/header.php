@@ -3,39 +3,38 @@
 <head>
 	<meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--	<title>Sirikatha Loan</title>-->
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="-1" />
-    <!-- <link href="<?php echo base_url() ?>assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" /> -->
 	<link href="<?php echo base_url() ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url() ?>assets/css/animate.min.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/css/style.min.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/css/custom.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/css/hover.css" rel="stylesheet" />
-<!--	<link href="<!?php echo base_url() ?>assets/css/modal_image.css" rel="stylesheet" />-->
-	<link href="<?php echo base_url() ?>assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link href="<?php echo base_url() ?>assets/css/style.min.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/css/custom.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/css/hover.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/css/style-responsive.min.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/css/theme/default.css" rel="stylesheet" id="theme"/>
 
     <link href="<?php echo base_url() ?>assets/plugins/simple-line-icons/css/simple-line-icons.css" rel="stylesheet"/>
-
     <!-- ================== END BASE CSS STYLE ================== -->
 
-
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-    <link href="<?php echo base_url() ?>assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/fontawesome-free-5.6.3-web/css/all.css">
-     <link href="<?php echo base_url() ?>assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/morris/morris.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
-	<link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fontawesome-free-5.6.3-web/css/all.css">
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/morris/morris.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css"
+          rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css"
+          rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css"
+          rel="stylesheet"/>
+    <link href="<?php echo base_url() ?>assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css"
+          rel="stylesheet"/>
     <link href="<?php echo base_url() ?>assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url() ?>assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
@@ -72,7 +71,6 @@
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
-    <!--	<script src="--><?php //echo base_url() ?><!--assets/plugins/pace/pace.min.js"></script>-->
     <script src="<?php
     echo base_url() ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
     <script src="<?php
@@ -90,9 +88,6 @@
     <!-- ================== END BASE JS ================== -->
     <script src="<?php
     echo base_url() ?>assets/js/apps.min.js"></script>
-    <!--    <script src="--><?php
-    //echo base_url() ?><!--assets/js/sweetaleart.js"></script>-->
-
 
     <script src="<?php
     echo base_url() ?>assets/plugins/select2/dist/js/select2.min.js"></script>
@@ -134,9 +129,6 @@
     echo base_url() ?>assets/js/form-plugins.demo.min.js"></script>
     <script src="<?php
     echo base_url() ?>assets/js/apps.min.js"></script>
-    <!--    <script src="--><?php
-    //echo base_url() ?><!--assets/js/sweetalert.js"></script>-->
-
 
     <script src="<?php
     echo base_url() ?>assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
@@ -165,7 +157,5 @@
 
     <script type="text/javascript" src="<?php
     echo base_url() ?>js/sweetaleart.js"></script>
-    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 
 </head>
-<!--<body class="pace-top bg-white">-->
