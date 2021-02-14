@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>404 Page Not Found</title>
-<style type="text/css">
+    <title>404 Page Not Found</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
-::selection{ background-color: #E13300; color: white; }
-::moz-selection{ background-color: #E13300; color: white; }
-::webkit-selection{ background-color: #E13300; color: white; }
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="assets/css/style.min.css" rel="stylesheet"/>
+    <link href="assets/css/style-responsive.min.css" rel="stylesheet"/>
+    <link href="assets/css/theme/default.css" rel="stylesheet" id="theme"/>
+    <!-- ================== END BASE CSS STYLE ================== -->
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
-}
-
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
-
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
-}
-
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
-
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	-webkit-box-shadow: 0 0 8px #D0D0D0;
-}
-
-p {
-	margin: 12px 15px 12px 15px;
-}
-</style>
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="assets/plugins/pace/pace.min.js"></script>
 </head>
-<body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
-	</div>
-</body>
+<body class="pace-top">
+<!-- begin #page-loader -->
+<!--<div id="page-loader" class="fade in"><span class="spinner"></span></div>-->
+<!-- end #page-loader -->
+
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+    <!-- begin error -->
+    <div class="error">
+        <div class="error-code m-b-10">404 <i class="ion-android-warning"></i></div>
+        <div class="error-content">
+            <div class="error-message">We couldn't find it...</div>
+            <div class="error-desc m-b-20">
+                The page you're looking for doesn't exist. <br/>
+                Perhaps, there pages will help find what you're looking for.
+            </div>
+        </div>
+    </div>
+    <!-- end error -->
+
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i
+                class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+</div>
 </html>
+
+<!-- ================== BEGIN BASE JS ================== -->
+<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+<script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+<script src="assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+<script src="assets/crossbrowserjs/html5shiv.js"></script>
+<script src="assets/crossbrowserjs/respond.min.js"></script>
+<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+<![endif]-->
+<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+<!-- ================== END BASE JS ================== -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="assets/js/apps.min.js"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+
+<script>
+    $(document).ready(function () {
+        App.init();
+    });
+</script>
