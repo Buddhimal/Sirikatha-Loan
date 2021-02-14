@@ -158,4 +158,8 @@
     <script type="text/javascript" src="<?php
     echo base_url() ?>js/sweetaleart.js"></script>
 
+    <script>
+        var base_url = "<?php echo base_url() ?>"
+    </script>
+
 </head>

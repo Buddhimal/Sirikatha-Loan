@@ -43,7 +43,7 @@
                                     <select class="multiple-select2 form-control" id="group_id" name="group_id"
                                             placeholder="Select Client Group">
                                         <option></option>
-                                        <?php foreach ($group_names->result() AS $group) { ?>
+                                        <?php foreach ($group_names->result() as $group) { ?>
 
                                             <option value="<?php echo $group->id ?>"><?php echo $group->group_id . '-' . $group->group_name ?></option>
                                         <?php } ?>
@@ -90,7 +90,7 @@
                                     <select class="multiple-select2 form-control" id="loan_type_id" name="loan_type_id"
                                             placeholder="Select Loan Type">
                                         <option></option>
-                                        <?php foreach ($loan_types->result() AS $loan_types) { ?>
+                                        <?php foreach ($loan_types->result() as $loan_types) { ?>
 
                                             <option value="<?php echo $loan_types->id ?>"><?php echo $loan_types->loan_name . " (" . $loan_types->amount . ")" ?></option>
                                         <?php } ?>
@@ -201,6 +201,52 @@
 <script src="<?php echo base_url() ?>assets/plugins/select2/dist/js/select2.min.js"></script>
 <script language="JavaScript" src="https://rhashemian.github.io/js/NumberFormat.js"></script>
 <script>
+
+    //(function ($) {
+    //    "use strict";
+    //
+    //    $(function () {
+    //
+    //        const submitFilterForm = {
+    //
+    //            $txtGroup: $("#group_id"),
+    //            $txtSearch: $("#txt-search"),
+    //            $selStatus: $("#sel-status"),
+    //
+    //            init: function () {
+    //                this.handleEvents();
+    //            },
+    //            handleEvents: function () {
+    //                const context = this;
+    //                this.$txtGroup.on("change", function () {
+    //                    context.getClientListForGroup();
+    //                });
+    //            },
+    //            getClientListForGroup: function () {
+    //                const context = this;
+    //
+    //                $.ajax({
+    //                    url: "<?php //echo base_url()?>//dashboard/select_clients_for_group",
+    //                    method: 'POST',
+    //                    data: {group_id: context.$txtGroup.val()},
+    //                    dataType: 'json',
+    //                }).done(function (data) {
+    //                    console.log('done', data);
+    //
+    //                }).fail(function (error) {
+    //                    console.log("error", error);
+    //                });
+    //
+    //            }
+    //
+    //        };
+    //        submitFilterForm.init();
+    //
+    //    });
+    //
+    //})(jQuery);
+
+
     var spinner = $('#loader');
 
 

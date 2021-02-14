@@ -52,6 +52,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "dashboard";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
 
         $query = $this->db->query("select count(*) as total from sirikatha_loan");
@@ -108,6 +109,16 @@ GROUP BY
         $this->load->view('footer');
     }
 
+    public function approve_loan()
+    {
+        $loan_id = base64_decode($this->input->get_post('loan_id'));
+        if ($this->mmodel->change_loan_status($loan_id))
+            echo json_encode(array('status' => 'success'));
+        else
+            echo json_encode(array('status' => 'error'));
+
+    }
+
     public function add_new_client()
     {
         $data['msg'] = '';
@@ -143,6 +154,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "add_new_client";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['client_number'] = $this->mmodel->generate_client_number();
         $this->load->view('client/add_new_client', $data);
@@ -204,6 +216,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "client_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['client_details'] = $this->mmodel->select_client_details();
         $this->load->view('client/client_list', $data);
@@ -221,6 +234,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "client_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['client_data'] = $this->mmodel->query("Select * from sirikatha_client where id=" . $client_id . " ");
         $this->load->view('client/client_profile', $data);
@@ -234,6 +248,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "add_new_client";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['client_data'] = $this->mmodel->query("Select * from sirikatha_client where id=" . $client_id . " ");
         $this->load->view('client/edit_client', $data);
@@ -279,6 +294,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "client_group";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['client_number'] = $this->mmodel->generate_group_number();
         $data['client_names'] = $this->mmodel->select_available_group_members();
@@ -293,16 +309,11 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "group_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $data['group_data'] = $this->db->query('CALL SP_GetUserGroupInfo');
         $this->load->view('client/group_list', $data);
         $this->load->view('footer');
-    }
-
-    public function testing_controller()
-    {
-        $data = "4444";
-        echo json_encode($data);
     }
 
 
@@ -347,21 +358,13 @@ GROUP BY
                 $return_data['msg'] = "Loan (" . $loan_id . ") Successfully Created " . $link . "";
                 $return_data['class_alert'] = "alert-success";
             }
-
-
-//            $post_data = $this->input->post();
-//            if ($this->mmodel->add_client_group($post_data)) {
-//                $link = "<a href=" . base_url() . "index.php/loan_list>   Click to loan List</a>";
-//
-//                $data['msg'] = "Loan (" . $post_data['group_name'] . ") Successfully Updated " . $link . "";
-//                $data['class_alert'] = "alert-success";
-//            }
         }
 
         $this->load->view('header');
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "add_new_loan";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $return_data['loan_number'] = $this->mmodel->generate_loan_number();
         $return_data['group_names'] = $this->mmodel->select_available_groups();
@@ -448,6 +451,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "loan_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
 
         if (empty($this->input->get_post('loan_type_id'))) {
@@ -508,6 +512,7 @@ GROUP BY
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "loan_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
         $this->load->view('loan/make_payment', $data);
         $this->load->view('footer');

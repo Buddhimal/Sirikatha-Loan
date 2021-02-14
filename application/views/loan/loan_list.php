@@ -30,7 +30,7 @@
                         <th>Paid Installments</th>
                         <th>LastPaidDate</th>
                         <th>Pending Installments</th>
-                        <th>Action</th>
+                        <th style="width: 85px; text-align: center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,8 +48,13 @@
                             <td><?php echo number_format($loan->loan_amount, 2, '.', ','); ?></td>
                             <td>
 
-                                <?php if ($loan->loan_status == 'ACTIVE') echo "<span class='label label-warning'>Active</span>"; else echo "<span class='label label-success'>Finished</span>"; ?>
-
+                                <?php
+                                echo (string)$loan->loan_status == (string)LoanStatus::ACTIVE ? "<span class='label label-primary'>Active</span>" : "";
+                                echo (string)$loan->loan_status == (string)LoanStatus::PENDING ? "<span class='label label-warning'>Pending</span>" : "";
+                                echo (string)$loan->loan_status == (string)LoanStatus::REJECTED ? "<span class='label label-danger'>Rejected</span>" : "";
+                                echo (string)$loan->loan_status == (string)LoanStatus::BLACKLISTED ? "<span class='label label-danger'>Blacklisted</span>" : "";
+                                echo (string)$loan->loan_status == (string)LoanStatus::FINISHED ? "<span class='label label-success'>Finished</span>" : "";
+                                ?>
                             </td>
                             <td><?php echo number_format($loan->instalment_amount, 2, '.', ','); ?></td>
                             <td><?php echo $loan->numbe_of_installments; ?></td>
@@ -64,16 +69,31 @@
                                 <?php if ($loan->pending_installments <= 0) echo "0"; else echo $loan->pending_installments; ?>
 
                             </td>
-                            <td>
-                                <a href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan->pk_loan_id) ?>"><i
-                                            style="color: orangered; font-size: 15px;" title="Make Payment"
-                                            class="fa fa-money"> </i></a> &nbsp &nbsp
+                            <td style="text-align: center">
+                                <?php if ((string)$loan->loan_status == (string)LoanStatus::PENDING)
+                                    if (in_array(SYS_APPROVE_LOANS, $permission_list)) {
+
+                                        ?>
+                                        <a>
+                                            <i style="color: green; font-size: 20px;" title="Approve"
+                                               class="fa fa-check"
+                                               onclick="approve_loan('<?php echo base64_encode($loan->pk_loan_id) ?>')">
+                                            </i>
+                                        </a> &nbsp &nbsp
+                                    <?php } ?>
+
+                                <?php if ((string)$loan->loan_status != (string)LoanStatus::PENDING && (string)$loan->loan_status != (string)LoanStatus::FINISHED) { ?>
+                                    <a href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan->pk_loan_id) ?>"><i
+                                                style="color: orangered; font-size: 20px;" title="Make Payment"
+                                                class="fa fa-money"> </i></a> &nbsp &nbsp
+                                <?php } ?>
+
                                 <a href="#modal-blacklist" class="blacklist" data-toggle="modal"
                                    data-client_pk="<?php echo $loan->pk_client_id ?>"
                                    data-loan_pk="<?php echo $loan->pk_loan_id ?>"
                                    data-client_id="<?php echo $loan->client_id ?>"
                                    data-client_name="<?php echo $loan->client_name ?>">
-                                    <i title="Add to Blacklist" style="font-size: 18px; color: red"
+                                    <i title="Add to Blacklist" style="font-size: 20px; color: red"
                                        class="fa fa-ban"></i></a>
                             </td>
 
@@ -91,7 +111,8 @@
 <div class="modal fade" id="modal-blacklist">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" id="frm_blacklist" action="<?php echo base_url()?>/add_to_blacklist" method="post">
+            <form class="form-horizontal" id="frm_blacklist" action="<?php echo base_url() ?>/add_to_blacklist"
+                  method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Blacklist Client : <label id="lbl_name"></label> (<label
@@ -103,13 +124,14 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Reason</label>
                         <div class="col-md-10">
-                            <textarea name="reason" id="reason" class="form-control" placeholder="Enter Reason"> </textarea>
+                            <textarea name="reason" id="reason" class="form-control"
+                                      placeholder="Enter Reason"> </textarea>
                         </div>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <a  class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                    <a class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
                     <button type="submit" class="btn btn-sm btn-danger" id="btn_block">Block</button>
                 </div>
             </form>
@@ -118,8 +140,6 @@
 </div>
 
 <script type="text/javascript" src="<?php echo base_url() ?>js/loan_list.js"></script>
-
-
 
 
 <script>

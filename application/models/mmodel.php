@@ -193,9 +193,95 @@ class MModel extends CI_Model
                                 FROM
                                     sirikatha_loan
                                 WHERE
-                                    sirikatha_loan.loan_status IN ( 'ACTIVE','BLACKLISTED'))");
+                                    sirikatha_loan.loan_status IN ( '1','4'))");
 
     }
 
+    public function change_loan_status($loan_id)
+    {
+
+        $loan_details = $this->db
+            ->select('*')
+            ->from('sirikatha_loan')
+            ->where('id', $loan_id)
+            ->get();
+
+        if ($loan_details->num_rows() > 0) {
+            $client_details = $this->db
+                ->select('*')
+                ->from('sirikatha_client')
+                ->where('id', $loan_details->row()->client_id)
+                ->get();
+
+            if ($client_details->num_rows() > 0) {
+
+                $this->db->trans_start(); # Starting Transaction
+                $this->db->trans_strict(TRUE);
+
+                $client_data['loan_id'] = $loan_id;
+                $client_data['loan_sys_id'] = $loan_details->row()->loan_id; //sys gen loan id
+                $client_data['client_id'] = $loan_details->row()->client_id;
+                $client_data['client_sys_id'] = $client_details->row()->client_id; //sys gen client id
+                $client_data['client_name'] = $client_details->row()->client_name;
+                $client_data['nic'] = $client_details->row()->nic;
+                $client_data['gender'] = $client_details->row()->gender;
+                $client_data['election_address'] = $client_details->row()->election_address;
+                $client_data['tp'] = $client_details->row()->tp;
+                $client_data['job_title'] = $client_details->row()->job_title;
+                $client_data['monthly_income'] = $client_details->row()->monthly_income;
+                $client_data['business_address'] = $client_details->row()->business_address;
+                $client_data['business_tp'] = $client_details->row()->business_tp;
+                $client_data['steward_name'] = $client_details->row()->steward_name;
+                $client_data['steward_nic'] = $client_details->row()->steward_nic;
+                $client_data['steward_address'] = $client_details->row()->steward_address;
+                $client_data['steward_tp'] = $client_details->row()->steward_tp;
+                $client_data['steward_job'] = $client_details->row()->steward_job;
+                $client_data['steward_income'] = $client_details->row()->steward_income;
+                $client_data['steward_job_address'] = $client_details->row()->steward_job_address;
+                $client_data['steward_job_tp'] = $client_details->row()->steward_job_tp;
+                $client_data['number_of_family_members'] = $client_details->row()->number_of_family_members;
+                $client_data['loan_amount'] = $client_details->row()->loan_amount;
+                $client_data['other_income_01'] = $client_details->row()->other_income_01;
+                $client_data['other_income_02'] = $client_details->row()->other_income_02;
+                $client_data['other_income_03'] = $client_details->row()->other_income_03;
+                $client_data['other_income_monthly'] = $client_details->row()->other_income_monthly;
+                $client_data['non_relation_name'] = $client_details->row()->non_relation_name;
+                $client_data['non_relation_address'] = $client_details->row()->non_relation_address;
+                $client_data['non_relation_tp'] = $client_details->row()->non_relation_tp;
+                $client_data['loan_reason'] = $client_details->row()->loan_reason;
+                $client_data['business_type'] = $client_details->row()->business_type;
+                $client_data['business_monthly_income'] = $client_details->row()->business_monthly_income;
+                $client_data['business_monthly_outcome'] = $client_details->row()->business_monthly_outcome;
+                $client_data['business_profit'] = $client_details->row()->business_profit;
+                $client_data['number_of_loans'] = $client_details->row()->number_of_loans;
+                $client_data['active_status'] = $client_details->row()->active_status;
+                $client_data['created_date'] = $client_details->row()->created_date;
+                $client_data['created_date'] = date("Y-m-d H:i:s");
+
+                $this->db->insert('sirikatha_loan_client', $client_data);
+                if ($this->db->affected_rows() > 0) {
+                    $this->db
+                        ->set('is_approved', LoanStatus::ACTIVE)
+                        ->set('loan_status', LoanStatus::ACTIVE)
+                        ->set('approved_by', $this->session->userdata('user_id'))
+                        ->set('approved_date', date("Y-m-d H:i:s"))
+                        ->where('id', $loan_id)
+                        ->update('sirikatha_loan');
+                }
+
+                if ($this->db->trans_status() === FALSE) {
+                    # Something went wrong.
+                    $this->db->trans_rollback();
+                    return FALSE;
+                } else {
+                    # Everything is Perfect.
+                    # Committing data to the database.
+                    $this->db->trans_commit();
+                    return TRUE;
+                }
+            }
+        }
+
+    }
 
 }

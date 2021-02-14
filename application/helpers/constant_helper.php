@@ -25,6 +25,14 @@ if ( ! function_exists('checkLogin'))
 
 }
 
+class LoanStatus
+{
+    const PENDING = 0;
+    const ACTIVE = 1;
+    const FINISHED = 2;
+    const REJECTED = 3;
+    const BLACKLISTED = 4;
+}
 
 
 /* SYSTEM MODULES */

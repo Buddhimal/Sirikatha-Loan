@@ -50,6 +50,7 @@ $route['group_list'] = "dashboard/group_list";
 $route['new_loan'] = "dashboard/new_loan";
 $route['add_new_loan'] = "dashboard/save_loan";
 $route['loan_list'] = "dashboard/loan_list";
+$route['approve_loan'] = "dashboard/approve_loan";
 $route['make_payment'] = "dashboard/add_payment";
 $route['inactive_client'] = "dashboard/inactive_client";
 $route['add_to_blacklist'] = "dashboard/blacklist_client";

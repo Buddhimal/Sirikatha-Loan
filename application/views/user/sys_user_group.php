@@ -59,13 +59,17 @@
                                                     <?php echo $groups->user_count ?>
                                                 </td>
                                                 <td>
-<!--                                                    <a href="--><?php //echo base_url() ?><!--index.php/user/user/delete_user_group?group_id=--><?php //echo base64_encode($groups->user_group_id) ?><!--">-->
-<!--                                                        <i title="Delete" class="fa fa-trash fa-lg"-->
-<!--                                                           style="color: red"></i></a> -->
+                                                    <!--                                                    <a href="-->
+                                                    <?php //echo base_url() ?><!--index.php/user/user/delete_user_group?group_id=-->
+                                                    <?php //echo base64_encode($groups->user_group_id) ?><!--">-->
+                                                    <!--                                                        <i title="Delete" class="fa fa-trash fa-lg"-->
+                                                    <!--                                                           style="color: red"></i></a> -->
 
 
-                                                        <i title="Delete" onclick="confirm(<?php echo ($groups->user_group_id) ?>)" class="fa fa-trash fa-lg"
-                                                           style="color: red"></i>
+                                                    <!--                                                        <i title="Delete" onclick="confirm(-->
+                                                    <!--                                                        --><?php //echo ($groups->user_group_id) ?>
+                                                    <!--                                                                )"-->
+                                                    <!--                                                           class="fa fa-trash fa-lg" style="color: red"></i>-->
                                                 </td>
 
                                             </tr>
