@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Fix available group improvements">
+      <change afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/loan_profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/errors/error_404.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/errors/error_404.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/helpers/constant_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/constant_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/mmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/mmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/user/mlogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user/mlogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/loan_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/loan_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/set_loan.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/set_loan.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/user/sys_user_group.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/sys_user_group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/client/add_new_client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/add_new_client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/loan_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loan_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_result.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_result.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +77,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/loan" />
       <recent name="C:\wamp64\www\Sirikatha\application\views\loan" />
       <recent name="C:\wamp64\www\Sirikatha\js" />
       <recent name="D:\Softwares\wamp64\www\SirikathaLoan\application\views\loan" />
       <recent name="D:\Softwares\wamp64\www\SirikathaLoan\js" />
-      <recent name="D:\wamp64\www\SirikathaLoan\application\views\client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
@@ -165,7 +163,7 @@
       <workItem from="1609909852304" duration="435000" />
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
-      <workItem from="1613217584836" duration="20501000" />
+      <workItem from="1613217584836" duration="42833000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -244,7 +242,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613220761343</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Change 404 page">
+      <created>1613326266487</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1613326266487</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add approval process to approve loan">
+      <created>1613326312855</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1613326312855</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +268,9 @@
     <MESSAGE value="Fix Bugs" />
     <MESSAGE value="Fix available group improvements" />
     <MESSAGE value="Fix Session Issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Session Issue" />
+    <MESSAGE value="Change 404 page" />
+    <MESSAGE value="Add approval process to approve loan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add approval process to approve loan" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

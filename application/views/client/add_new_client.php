@@ -60,7 +60,7 @@
                                 <div class="col-md-9">
                                     <select class="form-control" name="gender" id="gender">
                                         <option value="male">Male</option>
-                                        <option value="Female">FeMale</option>
+                                        <option value="Female">Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -408,7 +408,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Business Monthly Income</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="business_monthly_income" name="business_monthly_income"
+                                        <input type="number" id="business_monthly_income" name="business_monthly_income"
                                                class="form-control"
                                                placeholder="Business Monthly Income"/>
                                         <span id="business_monthly_income_span"></span>
@@ -421,7 +421,8 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Business Monthly Outcome</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="business_monthly_outcome" name="business_monthly_outcome"
+                                        <input type="number" id="business_monthly_outcome"
+                                               name="business_monthly_outcome"
                                                class="form-control"
                                                placeholder="Business Monthly Outcome"/>
                                         <span id="business_monthly_outcome_span"></span>
@@ -434,7 +435,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Business Profit</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="business_profit" name="business_profit"
+                                        <input type="number" id="business_profit" name="business_profit"
                                                class="form-control"
                                                placeholder="Business Profit"/>
                                         <span id="business_profit_span"></span>

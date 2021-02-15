@@ -34,13 +34,19 @@ class LoanStatus
     const BLACKLISTED = 4;
 }
 
+class ApproveStatus
+{
+    const PENDING = 0;
+    const APPROVED = 1;
+    const REJECTED = 2;
+}
+
 
 /* SYSTEM MODULES */
 $query = $this->ci->db->get('sys_module');
 
-foreach ($query->result() as $row)
-{
-    define($row->module_const,$row->module_id);
+foreach ($query->result() as $row) {
+    define($row->module_const, $row->module_id);
 }
 
 /* STATUSES */

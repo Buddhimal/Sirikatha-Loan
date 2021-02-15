@@ -260,8 +260,10 @@ class MModel extends CI_Model
 
                 $this->db->insert('sirikatha_loan_client', $client_data);
                 if ($this->db->affected_rows() > 0) {
+                    $loan_client_id = $this->db->insert_id();
                     $this->db
-                        ->set('is_approved', LoanStatus::ACTIVE)
+                        ->set('loan_client_id', $loan_client_id)
+                        ->set('is_approved', ApproveStatus::APPROVED)
                         ->set('loan_status', LoanStatus::ACTIVE)
                         ->set('approved_by', $this->session->userdata('user_id'))
                         ->set('approved_date', date("Y-m-d H:i:s"))
@@ -282,6 +284,137 @@ class MModel extends CI_Model
             }
         }
 
+    }
+
+    public function get_client_loan_profile($client_id)
+    {
+        $loan_details = [];
+        $all_finished_loans = [];
+        $all_pending_loans = [];
+        $all_loans = [];
+
+//        Get all finished loans
+        $loans = $this->db
+            ->select('l.id,
+                        l.loan_id, 
+                        l.loan_amount, 
+                        l.installment_amount, 
+                        l.number_of_installments, 
+                        l.first_installment_date, 
+                        l.loan_end_date, 
+                        l.payable_amount, 
+                        l.loan_date, 
+                        l.loan_status, 
+                        l.total_paid_amount, 
+                        l.last_paid_date, 
+                        l.is_approved, 
+                        l.loan_client_id, 
+                        l.approved_by, 
+                        l.approved_date, 
+                        l.loan_type_id, 
+                        lt.loan_name, 
+                        l.user_group_id, 
+                        lg.group_id, 
+                        lg.group_name,
+                        (
+			FX_NumberofInstallments (
+				(
+				CASE
+						
+						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) IS NULL THEN
+						l.first_installment_date ELSE ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) 
+					END 
+					),
+				NOW())) AS pending_installments,
+                        ')
+            ->from('sirikatha_loan as l')
+            ->join('sirikatha_loan_type as lt', 'l.loan_type_id = lt.id')
+            ->join('sirikatha_loan_group as lg', 'l.user_group_id = lg.id')
+            ->where('l.client_id', $client_id)
+            ->where('l.is_approved', ApproveStatus::APPROVED)
+            ->order_by('l.loan_status', 'ASC')
+            ->order_by('l.loan_date', 'DESC')
+            ->get();
+
+        if ($loans->num_rows() > 0) {
+
+            foreach ($loans->result() as $loan) {
+
+                $loan_client = $this->db
+                    ->select('*')
+                    ->from('sirikatha_loan_client')
+                    ->where('id', $loan->loan_client_id)
+                    ->get();
+
+                $loan_details['loan_details'] = $loan;
+                $loan_details['client_details'] = $loan_client->row();
+
+                $all_finished_loans[] = $loan_details;
+            }
+        }
+
+//get pending loan details if available
+        $pending_loan = $this->db
+            ->select('l.id,
+                        l.loan_id, 
+                        l.loan_amount, 
+                        l.installment_amount, 
+                        l.number_of_installments, 
+                        l.first_installment_date, 
+                        l.loan_end_date, 
+                        l.payable_amount, 
+                        l.loan_date, 
+                        l.loan_status, 
+                        l.total_paid_amount, 
+                        l.last_paid_date, 
+                        l.is_approved, 
+                        l.loan_client_id, 
+                        l.approved_by, 
+                        l.approved_date, 
+                        l.loan_type_id, 
+                        lt.loan_name, 
+                        l.user_group_id, 
+                        lg.group_id, 
+                        lg.group_name,
+                        (
+			FX_NumberofInstallments (
+				(
+				CASE
+						
+						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) IS NULL THEN
+						l.first_installment_date ELSE ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) 
+					END 
+					),
+				NOW())) AS pending_installments,
+                        ')
+            ->from('sirikatha_loan as l')
+            ->join('sirikatha_loan_type as lt', 'l.loan_type_id = lt.id')
+            ->join('sirikatha_loan_group as lg', 'l.user_group_id = lg.id')
+            ->where('l.client_id', $client_id)
+            ->where('l.is_approved', ApproveStatus::PENDING)
+            ->get();
+
+        if ($pending_loan->num_rows() > 0) {
+
+            foreach ($pending_loan->result() as $p_loan) {
+
+                $p_loan_client = $this->db
+                    ->select('*')
+                    ->from('sirikatha_client')
+                    ->where('id', $client_id)
+                    ->get();
+
+                $p_loan_details['loan_details'] = $p_loan;
+                $p_loan_details['client_details'] = $p_loan_client->row();
+
+                $all_pending_loans[] = $p_loan_details;
+            }
+        }
+
+        $all_loans['pending_loans'] = $all_pending_loans;
+        $all_loans['finished_loans'] = $all_finished_loans;
+
+        return $all_loans;
     }
 
 }

@@ -502,11 +502,13 @@ GROUP BY
             }
         }
 
+        $query = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id, ''));
+        $res = $query->result();
 
-        $res = $result = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id, ''));
+        $query->next_result();
+        $query->free_result();
 
-        $data['loan_details'] = $res;
-
+        $data['loan_details'] = $query;
 
         $this->load->view('header');
         $this->load->view('top_header');
@@ -518,5 +520,18 @@ GROUP BY
         $this->load->view('footer');
     }
 
+
+    public function loan_client_profile()
+    {
+        $this->load->view('header');
+        $this->load->view('top_header');
+        $object['controller'] = $this;
+        $object['active_tab'] = "loan_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
+        $this->load->view('top_menu', $object);
+        $data['loan_list'] = $this->mmodel->get_client_loan_profile(1);
+        $this->load->view('loan/client_loan_profile', $data);
+        $this->load->view('footer');
+    }
 
 }
