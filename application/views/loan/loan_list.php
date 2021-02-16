@@ -70,17 +70,11 @@
 
                             </td>
                             <td style="text-align: center">
-                                <?php if ((string)$loan->loan_status == (string)LoanStatus::PENDING)
-                                    if (in_array(SYS_APPROVE_LOANS, $permission_list)) {
-
-                                        ?>
-                                        <a>
-                                            <i style="color: green; font-size: 20px;" title="Approve"
-                                               class="fa fa-check"
-                                               onclick="approve_loan('<?php echo base64_encode($loan->pk_loan_id) ?>')">
-                                            </i>
-                                        </a> &nbsp &nbsp
-                                    <?php } ?>
+                                <a href="<?php echo base_url() ?>loan_profile?client_id=<?php echo base64_encode($loan->pk_client_id) ?>">
+                                    <i style="color: green; font-size: 20px;" title="Approve"
+                                       class="fa fa-user">
+                                    </i>
+                                </a> &nbsp &nbsp
 
                                 <?php if ((string)$loan->loan_status != (string)LoanStatus::PENDING && (string)$loan->loan_status != (string)LoanStatus::FINISHED) { ?>
                                     <a href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan->pk_loan_id) ?>"><i

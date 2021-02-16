@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Fix available group improvements">
-      <change afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/loan_profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/constant_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/constant_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/mmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/mmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/add_new_client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/add_new_client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/loan/loan_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/loan_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/loan_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loan_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_result.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_result.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +157,7 @@
       <workItem from="1609909852304" duration="435000" />
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
-      <workItem from="1613217584836" duration="42833000" />
+      <workItem from="1613217584836" duration="47391000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -256,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613326312855</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add client profile">
+      <created>1613424988515</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613424988515</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +271,8 @@
     <MESSAGE value="Fix Session Issue" />
     <MESSAGE value="Change 404 page" />
     <MESSAGE value="Add approval process to approve loan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add approval process to approve loan" />
+    <MESSAGE value="Add client profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add client profile" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

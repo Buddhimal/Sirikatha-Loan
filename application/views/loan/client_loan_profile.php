@@ -6,10 +6,69 @@
 
 <?php
 
-//var_dump(count($loan_list['pending_loans']));
-//die();
+if (count($loan_list['pending_loans']) > 0) {
+    $client = $loan_list['pending_loans'][0]['client_details'];
+} else {
+    $client = $loan_list['finished_loans'][0]['client_details'];
+}
 
 ?>
+
+
+<div class="profile-container header" id="myHeader">
+    <!-- begin profile-section -->
+    <div class="profile-section">
+        <!-- begin profile-left -->
+        <div class="profile-left" style="width: 150px">
+            <!-- begin profile-image -->
+            <div class="profile-image">
+                <img src="<?php echo base_url() ?>assets/images/user.png"/>
+                <i class="fa fa-user hide"></i>
+            </div>
+        </div>
+
+        <div class="profile-right">
+            <!-- begin profile-info -->
+            <div class="profile-info">
+                <!-- begin table -->
+                <div class="table-responsive">
+                    <table class="table table-profile">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <h4><?php echo $client->client_name ?>
+                                    <small><?php echo count($loan_list['pending_loans']) > 0 ? $client->client_id : $client->client_sys_id ?></small>
+                                </h4>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="">
+                            <td class="field">Full Name</td>
+                            <td><?php echo $client->client_name ?></td>
+                        </tr>
+                        <tr class="">
+                            <td class="field">Gender</td>
+                            <td><?php if ($client->gender == 'male') echo "Male"; else echo "Female" ?></td>
+                        </tr>
+                        <tr class="">
+                            <td class="field">Telephone</td>
+                            <td><?php echo $client->tp ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end table -->
+            </div>
+            <!-- end profile-info -->
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
 
 <div class="col-md-12">
     <div class="panel-group" id="accordion">
@@ -1026,6 +1085,7 @@
 
     </div>
 </div>
+
 
 <script type="text/javascript" src="<?php echo base_url() ?>js/loan_profile.js"></script>
 

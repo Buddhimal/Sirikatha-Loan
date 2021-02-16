@@ -523,13 +523,15 @@ GROUP BY
 
     public function loan_client_profile()
     {
+        $client_id = base64_decode($this->input->get_post('client_id'));
+
         $this->load->view('header');
         $this->load->view('top_header');
         $object['controller'] = $this;
         $object['active_tab'] = "loan_list";
         $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
-        $data['loan_list'] = $this->mmodel->get_client_loan_profile(1);
+        $data['loan_list'] = $this->mmodel->get_client_loan_profile($client_id);
         $this->load->view('loan/client_loan_profile', $data);
         $this->load->view('footer');
     }
