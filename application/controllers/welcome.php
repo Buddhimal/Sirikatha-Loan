@@ -27,10 +27,10 @@ class Welcome extends CI_Controller {
         //echo $username;
         if ($this->mlogin->login($username, $password)) {
 			//echo $return;
-            echo '{ "retval": true,"url" : "' . base_url() . 'dashboard' . '" }';
+            echo '{ "retval": true,"url" : "' . base_url() . '' . '" }';
         } else {
 			//echo $return;
-            echo '{ "retval": false,"url" : "' . base_url() . '" }';
+            echo '{ "retval": false,"url" : "' . base_url() . 'login" }';
         }
     }
 	
@@ -40,8 +40,8 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('login');
         $this->session->unset_userdata('name');
         $this->session->unset_userdata('username');
-        $this->session->sess_destroy();
-          redirect(base_url());
+          $this->session->sess_destroy();
+          redirect(base_url() . 'login');
     }
 	
 	public function change_password() {

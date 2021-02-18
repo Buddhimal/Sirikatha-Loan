@@ -321,7 +321,7 @@ class MModel extends CI_Model
 				(
 				CASE
 						
-						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) IS NULL THEN
+						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id AND sirikatha_loan_payment.is_active=1 ) IS NULL THEN
 						l.first_installment_date ELSE ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) 
 					END 
 					),
@@ -381,7 +381,7 @@ class MModel extends CI_Model
 				(
 				CASE
 						
-						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) IS NULL THEN
+						WHEN ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id AND sirikatha_loan_payment.is_active=1 ) IS NULL THEN
 						l.first_installment_date ELSE ( SELECT MAX( sirikatha_loan_payment.payment_for_date ) FROM sirikatha_loan_payment WHERE l.id = sirikatha_loan_payment.loan_id ) 
 					END 
 					),

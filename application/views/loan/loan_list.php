@@ -30,7 +30,7 @@
                         <th>Paid Installments</th>
                         <th>LastPaidDate</th>
                         <th>Pending Installments</th>
-                        <th style="width: 85px; text-align: center">Action</th>
+                        <th style="width: 55px; text-align: center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -82,13 +82,17 @@
                                                 class="fa fa-money"> </i></a> &nbsp &nbsp
                                 <?php } ?>
 
-                                <a href="#modal-blacklist" class="blacklist" data-toggle="modal"
-                                   data-client_pk="<?php echo $loan->pk_client_id ?>"
-                                   data-loan_pk="<?php echo $loan->pk_loan_id ?>"
-                                   data-client_id="<?php echo $loan->client_id ?>"
-                                   data-client_name="<?php echo $loan->client_name ?>">
-                                    <i title="Add to Blacklist" style="font-size: 20px; color: red"
-                                       class="fa fa-ban"></i></a>
+                                <!--                                <a href="#modal-blacklist" class="blacklist" data-toggle="modal"-->
+                                <!--                                   data-client_pk="-->
+                                <?php //echo $loan->pk_client_id ?><!--"-->
+                                <!--                                   data-loan_pk="-->
+                                <?php //echo $loan->pk_loan_id ?><!--"-->
+                                <!--                                   data-client_id="-->
+                                <?php //echo $loan->client_id ?><!--"-->
+                                <!--                                   data-client_name="-->
+                                <?php //echo $loan->client_name ?><!--">-->
+                                <!--                                    <i title="Add to Blacklist" style="font-size: 20px; color: red"-->
+                                <!--                                       class="fa fa-ban"></i></a>-->
                             </td>
 
                         </tr>

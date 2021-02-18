@@ -38,8 +38,9 @@
 |
 */
 
-$route['default_controller'] = "Welcome";
+$route['default_controller'] = "Dashboard";
 $route['404_override'] = '';
+$route['login'] = "welcome";
 $route['add_client'] = "dashboard/add_new_client";
 $route['client_list'] = "dashboard/client_list";
 $route['client_profile'] = "dashboard/client_profile";
