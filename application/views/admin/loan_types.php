@@ -4,6 +4,12 @@
     <small>Loans...</small>
 </h1>
 
+<?php
+//
+//var_dump($edit_data->loan_name);
+//die();
+//?>
+
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-inverse">
@@ -17,15 +23,20 @@
                     </div>
 
                 <?php } ?>
-                <form id="frm_loan_type" class="form-horizontal" action="" method="POST">
+                <form id="frm_loan_type" class="form-horizontal" action="/loan_types" method="POST">
                     <h4 class="m-t-0">Loan Type Information</h4>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Loan Name</label>
                                 <div class="col-md-9">
+                                    <input type="hidden" name="type_id"
+                                           value="<?php echo $type == "edit" ? $edit_data->id : "" ?>">
                                     <input type="text" id="loan_name" name="loan_name" class="form-control"
-                                           placeholder="Loan Name"/>
+                                           placeholder="Loan Name"
+                                           value="<?php echo $type == "edit" ? $edit_data->loan_name : "" ?>"
+                                        <?php echo $type == "edit" ? "readonly" : "" ?>
+                                    />
                                     <span id="loan_name_span"></span>
                                     <span id="loan_name_span2"></span>
 
@@ -37,7 +48,8 @@
                                 <label class="col-md-3 control-label">Loan Amount</label>
                                 <div class="col-md-9">
                                     <input type="number" id="loan_amount" name="loan_amount" class="form-control"
-                                           placeholder="Loan Amount"/>
+                                           placeholder="Loan Amount"
+                                           value="<?php echo $type == "edit" ? $edit_data->loan_amount : "" ?>"/>
                                     <span id="loan_amount_span"></span>
 
                                 </div>
@@ -49,6 +61,7 @@
                                 <div class="col-md-9">
                                     <input type="number" id="installment_amount" name="installment_amount"
                                            class="form-control"
+                                           value="<?php echo $type == "edit" ? $edit_data->instalment_amount : "" ?>"
                                            placeholder="Instalment Amount"/>
                                     <span id="installment_amount_span"></span>
 
@@ -61,6 +74,7 @@
                                 <div class="col-md-9">
                                     <input type="number" id="numbe_of_installments" name="numbe_of_installments"
                                            class="form-control"
+                                           value="<?php echo $type == "edit" ? $edit_data->numbe_of_installments : "" ?>"
                                            placeholder="Number of Instalments"/>
                                     <span id="numbe_of_installments_span"></span>
                                 </div>
@@ -89,15 +103,23 @@
                                 <label class="col-md-3 control-label">Status</label>
                                 <div class="col-md-9">
                                     <select class="form-control" name="status" id="status">
-                                        <option value="1"> Active</option>
-                                        <option value="0"> Inactive</option>
+                                        <option value="1" <?php echo $type == "edit" ? $edit_data->active_status == 1 ? "selected" : "" : ""; ?>>
+                                            Active
+                                        </option>
+                                        <option value="0" <?php echo $type == "edit" ? $edit_data->active_status == 0 ? "selected" : "" : ""; ?>>
+                                            Inactive
+                                        </option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary pull-right" id="btn_save"> Save</button>
-                            <!--                            <button type="submit" class="btn btn-primary pull-right" id="btn_update"> Update</button>-->
+                            <?php if ($type == "edit") { ?>
+                                <button type="submit" class="btn btn-primary pull-right" id="btn_update"> Update
+                                </button>
+                            <?php } else { ?>
+                                <button type="submit" class="btn btn-primary pull-right" id="btn_save"> Save</button>
+                            <?php } ?>
                         </div>
                     </div>
                 </form>
@@ -116,16 +138,16 @@
             </div>
             <div class="panel-body">
 
-                <table id="data-table-list" class="table table-striped table-bordered ">
+                <table id="data-table-list" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Loan Name</th>
-                        <th>Loan Amount</th>
-                        <th>Instalment Amount</th>
-                        <th>Number of Instalments</th>
-                        <th>Color Theme</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th style="text-align: center">Loan Name</th>
+                        <th style="text-align: center">Loan Amount</th>
+                        <th style="text-align: center">Instalment Amount</th>
+                        <th style="text-align: center">Number of Instalments</th>
+                        <th style="text-align: center">Color Theme</th>
+                        <th style="text-align: center">Status</th>
+                        <th style="text-align: center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -138,8 +160,15 @@
                             <td style="text-align: center;">
                                 <button class="btn" style="background-color: <?php echo $type->color ?>"></button>
                             </td>
-                            <td><?php echo $type->active_status ?></td>
-                            <td><?php echo $type->loan_name ?></td>
+                            <td style="text-align: center"><?php
+                                echo (string)$type->active_status == "1" ? "<span class='label label-success'>Active</span>" : "";
+                                echo (string)$type->active_status == "0" ? "<span class='label label-danger'>Inactive</span>" : "";
+                                ?></td>
+                            <td style="text-align: center">
+                                <a href="<?php echo base_url() ?>loan_types?type_id=<?php echo base64_encode($type->id) ?>"><i
+                                            style="color: dodgerblue; font-size: 20px;" title="Edit"
+                                            class="fa fa-pencil"> </i></a>
+                            </td>
                         </tr>
                     <?php } ?>
 
@@ -164,7 +193,7 @@
         App.init();
 
         //init color picker
-        $('select[name="color_theme"]').simplecolorpicker("selectColor", "<?php echo isset($active_color) ? $active_color : '#7bd148'  ?>");
+        $('select[name="color_theme"]').simplecolorpicker("selectColor", "<?php echo isset($edit_data->color) ? $edit_data->color : '#7bd148'  ?>");
     });
 
 </script>

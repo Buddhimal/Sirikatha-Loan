@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Fix available group improvements">
-      <change afterPath="$PROJECT_DIR$/application/views/admin/loan_types.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/admin/new_loan_type.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/loan_types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/mmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/mmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/form-plugins.demo.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/form-plugins.demo.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/loan_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/loan_types.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/no_permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/no_permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/top_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/top_menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/loan_types.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loan_types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +160,7 @@
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
       <workItem from="1613217584836" duration="55258000" />
-      <workItem from="1614015995103" duration="14870000" />
+      <workItem from="1614015995103" duration="19614000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -278,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613679667649</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Create add loan type view">
+      <created>1614108669489</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1614108669489</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +298,8 @@
     <MESSAGE value="Add client profile" />
     <MESSAGE value="Fix UI Issues" />
     <MESSAGE value="Fix login logout routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix login logout routes" />
+    <MESSAGE value="Create add loan type view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create add loan type view" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

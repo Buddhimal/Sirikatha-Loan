@@ -19,7 +19,7 @@
             $colorSpan: $("#color_theme_span"),
             $status: $("#status"),
             error: false,
-            validName: false,
+            validName: true,
             init: function () {
                 this.handleEvents();
                 this.checkForm();
@@ -27,6 +27,10 @@
             handleEvents: function () {
                 const context = this;
                 this.$btnSave.on("click", function (e) {
+                    e.preventDefault();
+                    context.saveLoanType();
+                });
+                this.$btnUpdate.on("click", function (e) {
                     e.preventDefault();
                     context.saveLoanType();
                 });

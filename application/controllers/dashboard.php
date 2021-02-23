@@ -538,63 +538,87 @@ GROUP BY
 
     public function loan_type_list()
     {
-        $data = [];
-
-        $colors_classes = array(
-            "#4CD964" => array("class" => "bg-gradient-green", "text" => "text-success", "icon" => "fa fa-money"),
-            "#FF9500" => array("class" => "bg-gradient-orange", "text" => "text-warning", "icon" => "fa fa-money"),
-            "#ff887c" => array("class" => "bg-gradient-red", "text" => "text-danger", "icon" => "fa fa-money"),
-            "#007aff" => array("class" => "bg-gradient-blue", "text" => "text-primary", "icon" => "fa fa-money"),
-            "#5AC8FA" => array("class" => "bg-gradient-aqua", "text" => "text-info", "icon" => "fa fa-money"),
-            "#83d6fb" => array("class" => "bg-aqua-lighter", "text" => "text-aqua", "icon" => "fa fa-money"),
-            "#8280e0" => array("class" => "bg-purple-lighter", "text" => "text-purple", "icon" => "fa fa-money"),
-            "#ffd940" => array("class" => "bg-yellow-lighter", "text" => "text-yellow", "icon" => "fa fa-money"),
-        );
-
-        if ($this->input->post() != null && sizeof($this->input->post()) > 0) {
-            $loan_name = $this->input->get_post('loan_name');
-            $loan_amount = $this->input->get_post('loan_amount');
-            $installment_amount = $this->input->get_post('installment_amount');
-            $numbe_of_installments = $this->input->get_post('numbe_of_installments');
-            $color_theme = $this->input->get_post('color_theme');
-            $status = $this->input->get_post('status');
-
-            $loan_type_data['loan_name'] = $loan_name;
-            $loan_type_data['loan_amount'] = $loan_amount;
-            $loan_type_data['instalment_amount'] = $installment_amount;
-            $loan_type_data['numbe_of_installments'] = $numbe_of_installments;
-            $loan_type_data['color'] = $color_theme;
-            $loan_type_data['const'] = strtoupper(str_replace(" ", "_", $loan_name));
-            $loan_type_data['class'] = $colors_classes[$color_theme]["class"];
-            $loan_type_data['icon'] = $colors_classes[$color_theme]["icon"];
-            $loan_type_data['text_class'] = $colors_classes[$color_theme]["text"];
-            $loan_type_data['active_status'] = $status;
-
-            $res = $this->db->select('*')->from('sirikatha_loan_type')->where('loan_name', $loan_name)->get();
-
-            if ($res->num_rows() == 0) {
-
-                if ($this->mmodel->insert('sirikatha_loan_type', $loan_type_data)) {
-                    $posts = $this->input->post();
-                    $data["class"] = "alert-success";
-                    $data["msg"] = "New Loan type added successfully!";
-                }
-            } else {
-                $data["class"] = "alert-danger";
-                $data["msg"] = "Error! Loan Name already exists!";
-            }
-
-        }
-
-        $data['loan_types'] = $this->mmodel->select_all('sirikatha_loan_type');
-
         $this->load->view('header');
         $this->load->view('top_header');
         $object['controller'] = $this;
-        $object['active_tab'] = "loan_list";
+        $object['active_tab'] = "loan_types";
         $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
-        $this->load->view('admin/loan_types', $data);
+
+        if (!$this->mloging->get_permission(SYS_ADD_LOAN_TYPE)) {
+            $this->load->view('no_permission');
+            $this->load->view('footer');
+        } else {
+
+            $data = [];
+            $data['type'] = "new";
+
+            $colors_classes = array(
+                "#4CD964" => array("class" => "bg-gradient-green", "text" => "text-success", "icon" => "fa fa-money"),
+                "#FF9500" => array("class" => "bg-gradient-orange", "text" => "text-warning", "icon" => "fa fa-money"),
+                "#ff887c" => array("class" => "bg-gradient-red", "text" => "text-danger", "icon" => "fa fa-money"),
+                "#007aff" => array("class" => "bg-gradient-blue", "text" => "text-primary", "icon" => "fa fa-money"),
+                "#5AC8FA" => array("class" => "bg-gradient-aqua", "text" => "text-info", "icon" => "fa fa-money"),
+                "#83d6fb" => array("class" => "bg-aqua-lighter", "text" => "text-aqua", "icon" => "fa fa-money"),
+                "#8280e0" => array("class" => "bg-purple-lighter", "text" => "text-purple", "icon" => "fa fa-money"),
+                "#ffd940" => array("class" => "bg-yellow-lighter", "text" => "text-yellow", "icon" => "fa fa-money"),
+            );
+
+            $type_id = base64_decode($this->input->get('type_id'));
+
+            if (isset($type_id) && $type_id != "") {
+                $data['type'] = "edit";
+                $data['edit_data'] = $this->db->select('*')->from('sirikatha_loan_type')->where('id', $type_id)->get()->row();
+
+            } elseif ($this->input->post() != null && sizeof($this->input->post()) > 0) {
+
+                $loan_id = $this->input->get_post('type_id');
+
+                $loan_name = $this->input->get_post('loan_name');
+                $loan_amount = $this->input->get_post('loan_amount');
+                $installment_amount = $this->input->get_post('installment_amount');
+                $numbe_of_installments = $this->input->get_post('numbe_of_installments');
+                $color_theme = $this->input->get_post('color_theme');
+                $status = $this->input->get_post('status');
+
+                $loan_type_data['loan_name'] = $loan_name;
+                $loan_type_data['loan_amount'] = $loan_amount;
+                $loan_type_data['instalment_amount'] = $installment_amount;
+                $loan_type_data['numbe_of_installments'] = $numbe_of_installments;
+                $loan_type_data['color'] = $color_theme;
+                $loan_type_data['const'] = strtoupper(str_replace(" ", "_", $loan_name));
+                $loan_type_data['class'] = $colors_classes[$color_theme]["class"];
+                $loan_type_data['icon'] = $colors_classes[$color_theme]["icon"];
+                $loan_type_data['text_class'] = $colors_classes[$color_theme]["text"];
+                $loan_type_data['active_status'] = $status;
+
+                if ($loan_id == "") {
+
+                    $res = $this->db->select('*')->from('sirikatha_loan_type')->where('loan_name', $loan_name)->get();
+
+                    if ($res->num_rows() == 0) {
+
+                        if ($this->mmodel->insert('sirikatha_loan_type', $loan_type_data)) {
+                            $data["class"] = "alert-success";
+                            $data["msg"] = "New Loan type added successfully!";
+                        }
+                    } else {
+                        $data["class"] = "alert-danger";
+                        $data["msg"] = "Error! Loan Name already exists!";
+                    }
+                } else {
+                    $this->db->set($loan_type_data)->where('id', $loan_id)->update('sirikatha_loan_type');
+                    if ($this->db->affected_rows() > 0) {
+                        $data["class"] = "alert-success";
+                        $data["msg"] = "Loan Type Updated Successfully!";
+                    }
+                }
+            }
+
+            $data['loan_types'] = $this->mmodel->select_all('sirikatha_loan_type');
+
+            $this->load->view('admin/loan_types', $data);
+        }
         $this->load->view('footer');
     }
 
