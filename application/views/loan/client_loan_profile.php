@@ -10,6 +10,8 @@ if (count($loan_list['pending_loans']) > 0) {
     $client = $loan_list['pending_loans'][0]['client_details'];
 } else {
     $client = $loan_list['finished_loans'][0]['client_details'];
+//    var_dump($client);
+//    die();
 }
 
 ?>

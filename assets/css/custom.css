@@ -34,3 +34,15 @@ h8 {
   cursor: pointer;
   /*color: red; !* This needs to match the color of the anchor tag *!*/
 }
+
+.text-purple {
+  color: #8280e0 !important
+}
+
+.text-aqua {
+  color: #83d6fb !important
+}
+
+.text-yellow {
+  color: #ffd940 !important
+}

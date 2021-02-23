@@ -417,4 +417,16 @@ class MModel extends CI_Model
         return $all_loans;
     }
 
+    public function insert($table, $data)
+    {
+        $this->db->insert($table, $data);
+        return $this->db->insert_id();
+    }
+
+    public function select_all($table)
+    {
+        $res = $this->db->select('*')->from($table)->get();
+        return $res;
+    }
+
 }
