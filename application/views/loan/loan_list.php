@@ -76,7 +76,7 @@
                                     </i>
                                 </a> &nbsp &nbsp
 
-                                <?php if ((string)$loan->loan_status != (string)LoanStatus::PENDING && (string)$loan->loan_status != (string)LoanStatus::FINISHED) { ?>
+                                <?php if ((string)$loan->loan_status != (string)LoanStatus::PENDING && (string)$loan->loan_status != (string)LoanStatus::FINISHED && (string)$loan->loan_status != (string)LoanStatus::REJECTED) { ?>
                                     <a href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan->pk_loan_id) ?>"><i
                                                 style="color: orangered; font-size: 20px;" title="Make Payment"
                                                 class="fa fa-money"> </i></a> &nbsp &nbsp

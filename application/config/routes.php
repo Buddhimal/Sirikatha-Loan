@@ -58,6 +58,7 @@ $route['inactive_client'] = "dashboard/inactive_client";
 $route['add_to_blacklist'] = "dashboard/blacklist_client";
 $route['loan_types'] = "dashboard/loan_type_list";
 $route['check_loan_name'] = "dashboard/check_loan_name";
+$route['reject_loan'] = "dashboard/reject_loan";
 
 
 /* End of file routes.php */

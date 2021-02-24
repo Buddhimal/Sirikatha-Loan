@@ -112,7 +112,18 @@ GROUP BY
     public function approve_loan()
     {
         $loan_id = base64_decode($this->input->get_post('loan_id'));
-        if ($this->mmodel->change_loan_status($loan_id))
+        if ($this->mmodel->approve_loan($loan_id))
+            echo json_encode(array('status' => 'success'));
+        else
+            echo json_encode(array('status' => 'error'));
+
+    }
+
+    public function reject_loan()
+    {
+        $loan_id = $this->input->get_post('loan_pk');
+        $reason = $this->input->get_post('reason');
+        if ($this->mmodel->reject_loan($loan_id, $reason))
             echo json_encode(array('status' => 'success'));
         else
             echo json_encode(array('status' => 'error'));

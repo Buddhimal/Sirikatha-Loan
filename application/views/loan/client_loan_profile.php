@@ -81,7 +81,7 @@ if (count($loan_list['pending_loans']) > 0) {
             $loan_details = $loan['loan_details'];
             $client_details = $loan['client_details'];
             ?>
-            <div class="panel panel-warning overflow-hidden">
+            <div class="panel <?php echo $loan_details->is_approved == ApproveStatus::REJECTED ? "panel-inverse" : "panel-warning" ?> overflow-hidden">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse"
@@ -560,14 +560,22 @@ if (count($loan_list['pending_loans']) > 0) {
                                     </div>
                                 </div>
                             </div>
-                            <?php if (in_array(SYS_APPROVE_LOANS, $permission_list)) { ?>
-                                <div class="row">
-                                    <button class="btn btn-primary pull-right"
-                                            onclick="approve_loan('<?php echo base64_encode($loan_details->id) ?>')">
-                                        Approve
-                                    </button>
-                                </div>
-                            <?php } ?>
+                            <?php if (in_array(SYS_APPROVE_LOANS, $permission_list))
+                                if ($loan_details->is_approved == ApproveStatus::PENDING) { ?>
+                                    <div class="row">
+                                        <button class="btn btn-primary pull-right"
+                                                onclick="approve_loan('<?php echo base64_encode($loan_details->id) ?>')">
+                                            Approve
+                                        </button> &nbsp;&nbsp;
+                                        <button href="#modal-reject" style="margin-right: 10px;"
+                                                class="btn btn-danger reject pull-right" data-toggle="modal"
+                                                data-client_pk="<?php echo $client_details->id ?>"
+                                                data-loan_pk="<?php echo $loan_details->id ?>"
+                                                data-loan_id="<?php echo $loan_details->loan_id ?>">
+                                            Reject
+                                        </button>&nbsp;&nbsp;
+                                    </div>
+                                <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -1085,6 +1093,37 @@ if (count($loan_list['pending_loans']) > 0) {
             <?php ++$row;
         } ?>
 
+    </div>
+</div>
+
+<div class="modal fade" id="modal-reject">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" id="frm_reject" action="<?php echo base_url() ?>/reject_loan"
+                  method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Reject Loan : <label id="lbl_name"></label> (<label
+                                id="lbl_id"> </label>)</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="client_pk" id="client_pk">
+                    <input type="hidden" name="loan_pk" id="loan_pk">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Reason</label>
+                        <div class="col-md-10">
+                            <textarea name="reason" id="reason" class="form-control"
+                                      placeholder="Enter Reason"> </textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-sm btn-danger" id="btn_block">Reject</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -176,7 +176,7 @@ class MModel extends CI_Model
 //                                WHERE
 //                                    lg.active_status = 1");
 
-        return $this->db->query("SELECT
+        return $this->db->query("SELECT DISTINCT
                                     lg.id, 
                                     lg.group_id, 
                                     lg.group_name
@@ -193,11 +193,11 @@ class MModel extends CI_Model
                                 FROM
                                     sirikatha_loan
                                 WHERE
-                                    sirikatha_loan.loan_status IN ( '1','4'))");
+                                    sirikatha_loan.loan_status IN ( '0','1','4'))");
 
     }
 
-    public function change_loan_status($loan_id)
+    public function approve_loan($loan_id)
     {
 
         $loan_details = $this->db
@@ -282,6 +282,27 @@ class MModel extends CI_Model
                     return TRUE;
                 }
             }
+        }
+
+    }
+
+    public function reject_loan($loan_id, $reason)
+    {
+        $this->db
+            ->set('is_approved', ApproveStatus::REJECTED)
+            ->set('loan_status', LoanStatus::REJECTED)
+            ->set('note', $reason)
+            ->set('approved_by', $this->session->userdata('user_id'))
+            ->set('approved_date', date("Y-m-d H:i:s"))
+            ->where('id', $loan_id)
+            ->update('sirikatha_loan');
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return FALSE;
+        } else {
+            $this->db->trans_commit();
+            return TRUE;
         }
 
     }
@@ -391,7 +412,7 @@ class MModel extends CI_Model
             ->join('sirikatha_loan_type as lt', 'l.loan_type_id = lt.id')
             ->join('sirikatha_loan_group as lg', 'l.user_group_id = lg.id')
             ->where('l.client_id', $client_id)
-            ->where('l.is_approved', ApproveStatus::PENDING)
+            ->where_in('l.is_approved', array(ApproveStatus::PENDING, ApproveStatus::REJECTED))
             ->get();
 
         if ($pending_loan->num_rows() > 0) {
