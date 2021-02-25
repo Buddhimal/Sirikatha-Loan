@@ -907,7 +907,7 @@ if (count($loan_list['pending_loans']) > 0) {
                                                             <td><?php echo $payment->is_active == 1 ? "<span class='label label-primary'>Active</span>" : "<span class='label label-danger'>Canceled</span>" ?></td>
                                                             <td><?php echo $payment->reason == "" ? "-" : $payment->reason ?></td>
                                                             <td>
-                                                                <?php if (in_array(SYS_APPROVE_LOANS, $permission_list))
+                                                                <?php if (in_array(SYS_CANCEL_PAYMENT, $permission_list))
                                                                     if ($payment->is_active == 1) { ?>
                                                                         <a class="cancel"
                                                                            href="#modal-cancel"
