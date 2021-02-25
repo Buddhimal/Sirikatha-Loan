@@ -712,4 +712,14 @@ GROUP BY
         echo json_encode($data);
     }
 
+    public function cancel_payment()
+    {
+        $payment_id = $this->input->get_post('pay_payment_id');
+        $reason = $this->input->get_post('pay_reason');
+        if ($this->mmodel->cancel_payment($payment_id, $reason))
+            echo json_encode(array('status' => 'success'));
+        else
+            echo json_encode(array('status' => 'error'));
+    }
+
 }

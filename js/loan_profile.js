@@ -53,6 +53,15 @@ $('.reject').click(function () {
 
 });
 
+$('.cancel').click(function () {
+
+    var payment_id = $(this).data('payment_id');
+
+    $('#pay_payment_id').val(payment_id);
+    $('#pay_reason').val('');
+
+});
+
 
 $("#frm_reject").submit(function (e) {
 
@@ -63,13 +72,14 @@ $("#frm_reject").submit(function (e) {
     if ($('#reason').val() != '') {
 
         Swal.fire({
-            title: 'Do you wnt to reject this loan?',
+            title: 'Do you want to reject this loan?',
             type: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, Do it!'
         }).then((result) => {
+            spinner.show();
             if (result.value) {
                 $.ajax({
                     type: "POST",
@@ -79,6 +89,7 @@ $("#frm_reject").submit(function (e) {
                         var result = $.parseJSON(data);
 
                         if (result.status == "success") {
+                            spinner.hide();
                             Swal.fire({
                                 title: "Process Completed",
                                 type: 'success',
@@ -88,7 +99,7 @@ $("#frm_reject").submit(function (e) {
                                 location.reload();
                             });
                         } else {
-
+                            spinner.hide();
                             Swal.fire({
                                 title: "Process In-completed",
                                 type: 'error',
@@ -106,5 +117,63 @@ $("#frm_reject").submit(function (e) {
         })
     } else {
         $('#reason').focus();
+    }
+});
+
+
+$("#frm_cancel").submit(function (e) {
+
+    e.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+
+    if ($('#pay_reason').val() != '') {
+
+        Swal.fire({
+            title: 'Do you want to Cancel this payment?',
+            type: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Do it!'
+        }).then((result) => {
+            spinner.show();
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(),
+                    success: function (data) {
+                        var result = $.parseJSON(data);
+
+                        if (result.status == "success") {
+                            spinner.hide();
+                            Swal.fire({
+                                title: "Process Completed",
+                                type: 'success',
+                                text: "Payment Canceled successfully",
+                                buttons: true
+                            }).then((result) => {
+                                location.reload();
+                            });
+                        } else {
+                            spinner.hide();
+                            Swal.fire({
+                                title: "Process In-completed",
+                                type: 'error',
+                                text: "Unable to Cancel the Payment",
+                                buttons: true
+                            }).then((result) => {
+                                // location.reload();
+                            });
+                        }
+                    }
+                });
+            } else {
+                $('#modal-reject').modal('toggle')
+            }
+        })
+    } else {
+        $('#pay_reason').focus();
     }
 });

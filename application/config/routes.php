@@ -60,6 +60,7 @@ $route['loan_types'] = "dashboard/loan_type_list";
 $route['check_loan_name'] = "dashboard/check_loan_name";
 $route['reject_loan'] = "dashboard/reject_loan";
 $route['edit_group'] = "dashboard/edit_client_group";
+$route['cancel_payment'] = "dashboard/cancel_payment";
 
 
 /* End of file routes.php */

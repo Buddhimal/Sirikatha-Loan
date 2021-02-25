@@ -88,7 +88,7 @@
                     </div>
                     <!--                    <div class="col-md-6"></div>-->
 
-                    <button id="btn_update" class="btn btn-success pull-right">Save Client</button>
+                    <button id="btn_update" class="btn btn-success pull-right">Update</button>
 
             </div>
             </form>

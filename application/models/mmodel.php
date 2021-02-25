@@ -404,6 +404,24 @@ class MModel extends CI_Model
 
     }
 
+    public function cancel_payment($payment_id, $reason)
+    {
+        $this->db
+            ->set('is_active', 0)
+            ->set('reason', $reason)
+            ->where('id', $payment_id)
+            ->update('sirikatha_loan_payment');
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return FALSE;
+        } else {
+            $this->db->trans_commit();
+            return TRUE;
+        }
+
+    }
+
     public function get_client_loan_profile($client_id)
     {
         $loan_details = [];
@@ -464,7 +482,14 @@ class MModel extends CI_Model
                     ->where('id', $loan->loan_client_id)
                     ->get();
 
+                $loan_payments = $this->db
+                    ->select('*')
+                    ->from('sirikatha_loan_payment')
+                    ->where('loan_id', $loan->id)
+                    ->get();
+
                 $loan_details['loan_details'] = $loan;
+                $loan_details['payment_details'] = $loan_payments;
                 $loan_details['client_details'] = $loan_client->row();
 
                 $all_finished_loans[] = $loan_details;

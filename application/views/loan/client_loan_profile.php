@@ -16,7 +16,7 @@ if (count($loan_list['pending_loans']) > 0) {
 
 ?>
 
-
+<!--Client Profile main detail-->
 <div class="profile-container header" id="myHeader">
     <!-- begin profile-section -->
     <div class="profile-section">
@@ -587,6 +587,7 @@ if (count($loan_list['pending_loans']) > 0) {
         <?php foreach ($loan_list['finished_loans'] as $loan) {
             $loan_details = $loan['loan_details'];
             $client_details = $loan['client_details'];
+            $payment_details = $loan['payment_details'];
             ?>
             <div class="panel panel-inverse overflow-hidden">
                 <div class="panel-heading">
@@ -614,6 +615,12 @@ if (count($loan_list['pending_loans']) > 0) {
                                     <a href="#default-tab-0_<?php echo $loan_details->id ?>" data-toggle="tab">
                                         <span class="visible-xs">Loan</span>
                                         <span class="hidden-xs">Loan Information</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#default-tab-01_<?php echo $loan_details->id ?>" data-toggle="tab">
+                                        <span class="visible-xs">Payments</span>
+                                        <span class="hidden-xs">Payment Information</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -863,6 +870,61 @@ if (count($loan_list['pending_loans']) > 0) {
                                                         <div class="control-label todolist-title"><?php echo $client_details->tp ?></div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="default-tab-01_<?php echo $loan_details->id ?>">
+                                    <div class="form-horizontal">
+                                        <h3 class="m-t-10"><i class="fa fa-money"></i> Payment Information</h3>
+                                        <br>
+                                        <div class="row">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Date</th>
+                                                        <th>Amount</th>
+                                                        <th>Instalments</th>
+                                                        <th>Payment Type</th>
+                                                        <th>Date Paid</th>
+                                                        <th>Status</th>
+                                                        <th>Reason</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $row = 0;
+                                                    foreach ($payment_details->result() as $payment) { ?>
+                                                        <tr>
+                                                            <td><?php echo ++$row; ?></td>
+                                                            <td><?php echo $payment->payment_for_date ?></td>
+                                                            <td><?php echo $payment->amount ?></td>
+                                                            <td><?php echo $payment->installments ?></td>
+                                                            <td><?php echo $payment->payment_type ?></td>
+                                                            <td><?php echo $payment->payment_date ?></td>
+                                                            <td><?php echo $payment->is_active == 1 ? "<span class='label label-primary'>Active</span>" : "<span class='label label-danger'>Canceled</span>" ?></td>
+                                                            <td><?php echo $payment->reason == "" ? "-" : $payment->reason ?></td>
+                                                            <td>
+                                                                <?php if (in_array(SYS_APPROVE_LOANS, $permission_list))
+                                                                    if ($payment->is_active == 1) { ?>
+                                                                        <a class="cancel"
+                                                                           href="#modal-cancel"
+                                                                           data-toggle="modal"
+                                                                           data-payment_id="<?php echo $payment->id ?>"
+                                                                        ><i
+                                                                                    style="color: indianred; font-size: 20px;"
+                                                                                    title="Cancel"
+                                                                                    class="fa fa-close"> </i></a>
+
+                                                                    <?php } ?>
+
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -1121,6 +1183,35 @@ if (count($loan_list['pending_loans']) > 0) {
                 <div class="modal-footer">
                     <a class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
                     <button type="submit" class="btn btn-sm btn-danger" id="btn_block">Reject</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-cancel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" id="frm_cancel" action="<?php echo base_url() ?>/cancel_payment"
+                  method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Cancek Payment</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="pay_payment_id" id="pay_payment_id">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Reason</label>
+                        <div class="col-md-10">
+                            <textarea name="pay_reason" id="pay_reason" class="form-control"
+                                      placeholder="Enter Reason"> </textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-sm btn-danger" id="btn_cancel">Reject</button>
                 </div>
             </form>
         </div>
