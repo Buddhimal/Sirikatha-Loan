@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/user/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/user/user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/user/user_group.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/user_group.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
     </list>
@@ -157,7 +157,7 @@
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
       <workItem from="1613217584836" duration="55258000" />
-      <workItem from="1614015995103" duration="46811000" />
+      <workItem from="1614015995103" duration="47620000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -306,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614287987982</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fix available group improvements fix">
+      <created>1614289041911</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1614289041911</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +334,19 @@
     <MESSAGE value="Add reject option to load" />
     <MESSAGE value="Edit group done" />
     <MESSAGE value="View payments in client profile and cancel payment option" />
-    <option name="LAST_COMMIT_MESSAGE" value="View payments in client profile and cancel payment option" />
+    <MESSAGE value="Fix available group improvements fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix available group improvements fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/user/user.php</url>
+          <line>65</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

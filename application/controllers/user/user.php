@@ -51,7 +51,6 @@ class user extends CI_Controller
                 if ($this->inner_check_valide_username($post_data['username']) == 1) {
                     $data['msg'] = "Username Already Exists...!";
                     $data['class_alert'] = "alert-danger";
-                    $data['user_list'] = $this->muser->get_sys_user_list();
                 } else {
                     if ($this->muser->addnew_sys_user($post_data)) {
                         $data['msg'] = "User (" . $post_data['name'] . ") Successfully Registered";
@@ -62,7 +61,7 @@ class user extends CI_Controller
                     }
                 }
             }
-
+            $data['user_list'] = $this->muser->get_sys_user_list();
             $data['user_group'] = $this->muser->get_sys_user_user_group();
             $this->load->view('user/sys_user', $data);
 
