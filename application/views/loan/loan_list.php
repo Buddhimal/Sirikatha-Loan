@@ -11,6 +11,45 @@
             </div>
             <div class="panel-body">
 
+                <div class="row">
+                    <form class="form-inline" action="" method="GET">
+                        <div class="form-group m-r-10">
+                            <input type="text" class="form-control" id="loan_number" name="loan_number"
+                                   placeholder="Loan Number"/>
+                        </div>
+                        <div class="form-group m-r-10">
+                            <input type="text" class="form-control" id="client_number" name="client_number"
+                                   placeholder="Client Number"/>
+                        </div>
+                        <div class="form-group m-r-10">
+                            <input type="text" class="form-control" id="client_name" name="client_name"
+                                   placeholder="Client Name"/>
+                        </div>
+                        <div class="form-group m-r-10">
+                            <select class="form-control">
+                                <option selected>Select Loan Type</option>
+                                <?php foreach ($loan_types->result() as $loan_types) { ?>
+
+                                    <option value="<?php echo $loan_types->id ?>"><?php echo $loan_types->loan_name . " (" . $loan_types->amount . ")" ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group m-r-10">
+                            <select class="form-control">
+                                <option selected>Select Loan status</option>
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                                <option>Rejected</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary m-r-5">Filter</button>
+                        <button type="reset" class="btn btn-sm btn-default">Clear</button>
+                    </form>
+                </div>
+            </div>
+            <div class="panel-body">
+
                 <table id="data-table-list" class="table table-striped table-bordered ">
                     <thead>
                     <tr>

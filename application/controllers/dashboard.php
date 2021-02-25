@@ -296,7 +296,7 @@ GROUP BY
             if ($this->mmodel->add_client_group($post_data)) {
                 $link = "<a href=" . base_url() . "index.php/group_list>   Click to Group List</a>";
 
-                $data['msg'] = "Group (" . $post_data['group_name'] . ") Successfully Updated " . $link . "";
+                $data['msg'] = "Group (" . $post_data['group_name'] . ") Successfully Added " . $link . "";
                 $data['class_alert'] = "alert-success";
             }
         }
@@ -310,6 +310,73 @@ GROUP BY
         $data['client_number'] = $this->mmodel->generate_group_number();
         $data['client_names'] = $this->mmodel->select_available_group_members();
         $this->load->view('client/add_client_group', $data);
+        $this->load->view('footer');
+    }
+
+    public function edit_client_group()
+    {
+        $group_id = base64_decode($this->input->get('group_id'));
+        $group_id = $this->db->select('id')->from('sirikatha_loan_group')->where('group_id', $group_id)->get()->row()->id;
+
+        $data['msg'] = '';
+        if ($this->input->post() != null && sizeof($this->input->post()) > 0) {
+            $post_data = $this->input->post();
+
+            $link = "<a href=" . base_url() . "index.php/group_list>   Click to Group List</a>";
+
+            if ($this->mmodel->edit_client_group($post_data)) {
+                $data['msg'] = "Group (" . $post_data['group_name'] . ") Successfully Updated " . $link . "";
+                $data['class_alert'] = "alert-success";
+            } else {
+                $data['msg'] = "Unable to edit group (" . $post_data['group_name'] . "). You removed some clients already on loan!" . $link . "";
+                $data['class_alert'] = "alert-danger";
+            }
+        }
+
+        $active_group_members = $this->db->query("SELECT
+                                                        sp.pk_group_id,
+                                                        sp.id AS pk_client_id,
+                                                        sp.group_id,
+                                                        sp.client_id,
+                                                        sp.client_name,
+                                                        sp.group_name
+                                                    FROM
+                                                        (
+                                                        SELECT
+                                                            c.id,
+                                                            c.client_id,
+                                                            c.client_name,
+                                                            g.group_name,
+                                                            g.group_id,
+                                                            g.id AS pk_group_id 
+                                                        FROM
+                                                            sirikatha_loan_group_client AS cgc
+                                                            INNER JOIN sirikatha_client AS c ON c.id = cgc.sirikatha_client_id
+                                                            LEFT JOIN sirikatha_loan AS l ON l.client_id = c.id
+                                                            INNER JOIN sirikatha_loan_group AS g ON cgc.sirikatha_loan_group_id = g.id 
+                                                        WHERE
+                                                            cgc.sirikatha_loan_group_id = $group_id
+                                                            and cgc.is_active=1
+                                                        ) sp 
+                                                    GROUP BY
+                                                        id,
+                                                        client_id,
+                                                        client_name,
+                                                        sp.group_id,
+                                                        sp.pk_group_id,
+                                                        sp.group_name"
+        );
+        $data['group_data'] = $active_group_members;
+
+        $this->load->view('header');
+        $this->load->view('top_header');
+        $object['controller'] = $this;
+        $object['active_tab'] = "group_list";
+        $object['permission_list'] = $this->mlogin->get_all_permission_models();
+        $this->load->view('top_menu', $object);
+
+        $data['client_names'] = $this->mmodel->select_available_group_members();
+        $this->load->view('client/edit_client_group', $data);
         $this->load->view('footer');
     }
 
@@ -405,6 +472,7 @@ GROUP BY
                                             LEFT JOIN sirikatha_loan AS l ON l.client_id = sirikatha_client.id 
                                         WHERE
                                             cgc.sirikatha_loan_group_id = $group_id
+                                            and cgc.is_active=1
                                         ) sp                                     
                                     GROUP BY
                                         id,
@@ -470,10 +538,7 @@ GROUP BY
         } else
             $loan_type_id = $this->input->get_post('loan_type_id');
 
-//        var_dump($loan_type_id);
-//        die();
-
-//        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails');
+        $data['loan_types'] = $this->db->query('SELECT id,loan_name,loan_amount AS amount FROM sirikatha_loan_type where  active_status=1');
         $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails(?,?)', array('', $loan_type_id));
 
         $this->load->view('loan/loan_list', $data);

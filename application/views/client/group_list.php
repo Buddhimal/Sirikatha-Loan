@@ -1,7 +1,7 @@
 <title> SIRIKATHA | Group List </title>
 
-<h1 class="page-header">Client List
-    <small>All Clients...</small>
+<h1 class="page-header">Group List
+    <small>All Groups...</small>
 </h1>
 <div class="row">
     <div class="col-md-12">
@@ -25,7 +25,7 @@
                     </thead>
                     <tbody>
 
-                    <?php foreach ($group_data->result() as $group){ ?>
+                    <?php foreach ($group_data->result() as $group) { ?>
 
                         <tr class="odd gradeX">
                             <td><?php echo $group->group_name; ?></td>
@@ -33,11 +33,13 @@
                             <td><?php echo $group->client1; ?></td>
                             <td><?php echo $group->client2; ?></td>
                             <td><?php echo $group->client3; ?></td>
-                            <td><?php if($group->active_status==1) echo "<span class='label label-success'>Active</span>"; else echo "<span class='label label-danger'>De-Active</span>"; ?></td>
-                            <td>
-                                <a onclick="hello('<?php echo $group->group_id ?>')" ><i title="Inactive" style="color: red" class="fa fa-2x fa-ban"> </i></a>
+                            <td><?php if ($group->active_status == 1) echo "<span class='label label-success'>Active</span>"; else echo "<span class='label label-danger'>Inactive</span>"; ?></td>
+                            <td style="text-align: center">
+                                <a href="<?php echo base_url() ?>edit_group?group_id=<?php echo base64_encode($group->group_id) ?>"><i
+                                            title="Edit" style="color: dodgerblue; font-size: 20px"
+                                            class="fa fa-pencil"> </i></a>
                             </td>
-                         </tr>
+                        </tr>
                     <?php } ?>
 
                     </tbody>

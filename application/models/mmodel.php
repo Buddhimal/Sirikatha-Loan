@@ -68,6 +68,102 @@ class MModel extends CI_Model
         return true;
     }
 
+    public function edit_client_group($post_data)
+    {
+
+//        return false;
+
+        $loan_id = $post_data['id'];
+
+        $group_details = $this->db->query("SELECT * FROM sirikatha_loan_group WHERE id='" . $post_data['id'] . "'");
+        $client_list = $this->db->query("SELECT * FROM sirikatha_loan_group_client WHERE is_active = 1 AND sirikatha_loan_group_id='" . $post_data['id'] . "'");
+
+        $old_list = [];
+
+        foreach ($client_list->result() as $old) {
+            $old_list[] = $old->sirikatha_client_id;
+        }
+
+        $in_list = [];
+        $new_to_list = [];
+
+
+        foreach ($post_data['client'] as $new_client) {
+
+            if (in_array($new_client, $old_list)) {
+                $in_list[] = $new_client;
+            } else {
+                $new_to_list[] = $new_client;
+            }
+        }
+
+
+        $in_client_list = implode("', '", $in_list);
+
+        $to_remove_clients = $this->db->query(
+            "SELECT
+                *,
+                ( 
+            SELECT
+                COUNT(*) 
+            FROM
+                sirikatha_loan 
+            WHERE
+                loan_status IN ( 0, 1, 4 ) 
+                AND client_id = sirikatha_loan_group_client.sirikatha_client_id 
+                ) AS active_loans
+            FROM
+                ( `sirikatha_loan_group_client` ) 
+            WHERE
+                `sirikatha_client_id` NOT IN (  '$in_client_list' ) 
+                AND `sirikatha_loan_group_id` = $loan_id AND is_active =1 "
+
+        );
+
+//        var_dump($in_list);
+//        var_dump($new_to_list);
+//        var_dump($to_remove_clients->result() );
+//        die();
+
+        //ignore if someone has active or pending loan
+        foreach ($to_remove_clients->result() as $item) {
+            if ($item->active_loans > 0) {
+                return false;
+            }
+        }
+
+        $new_client_count = count($new_to_list);
+
+        if ($to_remove_clients->num_rows() == $new_client_count) {
+
+            for ($i = 0; $i < $new_client_count; $i++) {
+
+                $this->db
+                    ->set('is_active', 0)
+                    ->where('sirikatha_loan_group_id', $to_remove_clients->result()[$i]->sirikatha_loan_group_id)
+                    ->where('sirikatha_client_id', $to_remove_clients->result()[$i]->sirikatha_client_id)
+                    ->where('line_loc', $to_remove_clients->result()[$i]->line_loc)
+                    ->update('sirikatha_loan_group_client');
+
+                $new_record = array(
+                    "sirikatha_loan_group_id" => $to_remove_clients->result()[$i]->sirikatha_loan_group_id,
+                    "sirikatha_client_id" => $new_to_list[$i],
+                    "line_loc" => $to_remove_clients->result()[$i]->line_loc,
+                    "is_active" => 1,
+                    "created_date" => date("Y-m-d H:i:s"),
+                );
+
+                $this->db->insert('sirikatha_loan_group_client', $new_record);
+
+            }
+
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
     public function select_client_details()
     {
         return $this->db->query('CALL sp_getClientDetails(?)', array(''));
@@ -157,9 +253,10 @@ class MModel extends CI_Model
                                         sirikatha_client_id 
                                     FROM
                                         sirikatha_loan_group_client lgc
-                                        INNER JOIN sirikatha_loan_group AS lg ON lg.id = lgc.sirikatha_loan_group_id 
+                                        INNER JOIN sirikatha_loan_group AS lg ON lg.id = lgc.sirikatha_loan_group_id  
                                     WHERE
                                         c.id = sirikatha_client_id 
+                                        AND lgc.is_active=1
                                         AND lg.active_status = 1 
                                     ) 
                                     AND c.active_status = 1");
@@ -185,7 +282,7 @@ class MModel extends CI_Model
                                     INNER JOIN
                                     sirikatha_loan_group_client
                                     ON 
-                                        lg.id = sirikatha_loan_group_client.sirikatha_loan_group_id
+                                        lg.id = sirikatha_loan_group_client.sirikatha_loan_group_id AND sirikatha_loan_group_client.is_active=1
                                 WHERE
                                     lg.active_status = 1 
                                     AND sirikatha_loan_group_client.sirikatha_client_id NOT IN (SELECT

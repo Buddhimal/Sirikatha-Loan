@@ -82,7 +82,7 @@
                 <ul class="sub-menu">
                     <li class="<?php if (($active_tab) == 'client_group') echo 'active' ?>"><a
                                 href="<?php echo base_url(); ?>client_group">
-                            <span>Add New Client Group</span></a></li>
+                            <span>New Group</span></a></li>
                     <li class="<?php if (($active_tab) == 'group_list') echo 'active' ?>"><a
                                 href="<?php echo base_url(); ?>group_list">
                             <span>Group List</span></a></li>
@@ -102,12 +102,12 @@
                                     href="<?php echo base_url(); ?>loan_types">
                                 <span>Loan Types</span></a></li>
                     <?php } ?>
-                    <li class="<?php if (($active_tab) == 'add_new_loan') echo 'active' ?>"><a
-                                href="<?php echo base_url(); ?>new_loan">
-                            <span>Add New Loan</span></a></li>
                     <li class="<?php if (($active_tab) == 'loan_list') echo 'active' ?>"><a
                                 href="<?php echo base_url(); ?>loan_list">
                             <span>Loan List</span></a></li>
+                    <li class="<?php if (($active_tab) == 'add_new_loan') echo 'active' ?>"><a
+                                href="<?php echo base_url(); ?>new_loan">
+                            <span>New Loan</span></a></li>
                 </ul>
             </li>
 

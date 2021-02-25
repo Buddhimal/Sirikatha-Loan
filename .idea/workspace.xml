@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Fix available group improvements">
+      <change afterPath="$PROJECT_DIR$/application/views/client/edit_client_group.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/mmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/mmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/client/group_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/group_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/loan/loan_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/loan_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/top_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/top_menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/loan_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loan_profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/loan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,11 +75,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/client" />
       <recent name="$PROJECT_DIR$/application/views/loan" />
       <recent name="C:\wamp64\www\Sirikatha\application\views\loan" />
       <recent name="C:\wamp64\www\Sirikatha\js" />
       <recent name="D:\Softwares\wamp64\www\SirikathaLoan\application\views\loan" />
-      <recent name="D:\Softwares\wamp64\www\SirikathaLoan\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
@@ -161,7 +162,7 @@
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
       <workItem from="1613217584836" duration="55258000" />
-      <workItem from="1614015995103" duration="25806000" />
+      <workItem from="1614015995103" duration="41926000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -289,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614114651271</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add reject option to load">
+      <created>1614193709394</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1614193709394</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +315,8 @@
     <MESSAGE value="Fix login logout routes" />
     <MESSAGE value="Create add loan type view" />
     <MESSAGE value="Fix available group improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix available group improvements" />
+    <MESSAGE value="Add reject option to load" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reject option to load" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
