@@ -533,13 +533,24 @@ GROUP BY
         $object['permission_list'] = $this->mlogin->get_all_permission_models();
         $this->load->view('top_menu', $object);
 
-        if (empty($this->input->get_post('loan_type_id'))) {
-            $loan_type_id = '';
-        } else
-            $loan_type_id = $this->input->get_post('loan_type_id');
+        $loan_id = $this->input->get('loan_id');
+        $loan_number = $this->input->get('loan_number');
+        $client_number = $this->input->get('client_number');
+        $client_name = $this->input->get('client_name');
+        $loan_status = $this->input->get('loan_status');
+        $loan_type_id = $this->input->get('loan_type_id');
+
+        $where = array(
+            empty(!$loan_id) ? $loan_id : '',
+            empty(!$loan_number) ? $loan_number : '',
+            empty(!$loan_type_id) ? $loan_type_id : '',
+            empty(!$client_number) ? $client_number : '',
+            empty(!$client_name) ? $client_name : '',
+            ($loan_status != "") ? $loan_status : '',
+        );
 
         $data['loan_types'] = $this->db->query('SELECT id,loan_name,loan_amount AS amount FROM sirikatha_loan_type where  active_status=1');
-        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails(?,?)', array('', $loan_type_id));
+        $data['loan_details'] = $this->db->query('CALL sp_getLoanDetails(?,?,?,?,?,?)', $where);
 
         $this->load->view('loan/loan_list', $data);
         $this->load->view('footer');
@@ -578,7 +589,16 @@ GROUP BY
             }
         }
 
-        $query = $this->db->query('CALL sp_getLoanDetails(?,?)', array($loan_id, ''));
+        $where = array(
+            $loan_id,
+            '',
+            '',
+            '',
+            '',
+            '',
+        );
+
+        $query = $this->db->query('CALL sp_getLoanDetails(?,?,?,?,?,?)', $where);
         $res = $query->result();
 
         $query->next_result();

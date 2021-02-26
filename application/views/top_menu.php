@@ -9,7 +9,7 @@
 
                 <div class="info">
                     <p class="" style="font-size: 20px">SIRIKATHA</p>
-                    <small class="">Loan System V 1.2</small>
+                    <small class="">Loan System V 2.0</small>
                 </div>
             </li>
 

@@ -21,13 +21,13 @@ $('.blacklist').click(function () {
 });
 
 
-$("#frm_blacklist").submit(function(e) {
+$("#frm_blacklist").submit(function (e) {
 
     e.preventDefault();
     var form = $(this);
     var url = form.attr('action');
 
-    if($('#reason').val()!='') {
+    if ($('#reason').val() != '') {
 
         Swal.fire({
             title: 'Do you wnt to add this client to Blacklist?',
@@ -53,4 +53,38 @@ $("#frm_blacklist").submit(function(e) {
     } else {
         $('#reason').focus();
     }
+});
+
+
+$("#form_filter").submit(function (e) {
+
+    // e.preventDefault();
+    if ($("#loan_number").val() == "") {
+        $("#loan_number").remove();
+    }
+    if ($("#client_number").val() == "") {
+        $("#client_number").remove();
+    }
+    if ($("#client_name").val() == "") {
+        $("#client_name").remove();
+    }
+    if ($("#loan_type_id").val() == "") {
+        $("#loan_type_id").remove();
+    }
+    if ($("#loan_status").val() == "") {
+        $("#loan_status").remove();
+    }
+
+});
+
+
+$("#clear_form").click(function (e) {
+
+    // e.preventDefault();
+    $("#loan_number").remove();
+    $("#client_number").remove();
+    $("#client_name").remove();
+    $("#loan_type_id").remove();
+    $("#loan_status").remove();
+    $("#form_filter").submit();
 });

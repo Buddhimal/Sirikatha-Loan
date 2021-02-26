@@ -12,39 +12,53 @@
             <div class="panel-body">
 
                 <div class="row">
-                    <form class="form-inline" action="" method="GET">
+                    <form class="form-inline" id="form_filter" action="" method="GET">
                         <div class="form-group m-r-10">
                             <input type="text" class="form-control" id="loan_number" name="loan_number"
+                                   value="<?php echo isset($_GET['loan_number']) ? $_GET['loan_number'] : '' ?>"
                                    placeholder="Loan Number"/>
                         </div>
                         <div class="form-group m-r-10">
                             <input type="text" class="form-control" id="client_number" name="client_number"
+                                   value="<?php echo isset($_GET['client_number']) ? $_GET['client_number'] : '' ?>"
                                    placeholder="Client Number"/>
                         </div>
                         <div class="form-group m-r-10">
                             <input type="text" class="form-control" id="client_name" name="client_name"
+                                   value="<?php echo isset($_GET['client_name']) ? $_GET['client_name'] : '' ?>"
                                    placeholder="Client Name"/>
                         </div>
                         <div class="form-group m-r-10">
-                            <select class="form-control">
-                                <option selected>Select Loan Type</option>
+                            <select class="form-control" name="loan_type_id" id="loan_type_id">
+                                <option selected value="">Select Loan Type</option>
                                 <?php foreach ($loan_types->result() as $loan_types) { ?>
+                                    <?php $type = isset($_GET['loan_type_id']) ? $_GET['loan_type_id'] : ''; ?>
 
-                                    <option value="<?php echo $loan_types->id ?>"><?php echo $loan_types->loan_name . " (" . $loan_types->amount . ")" ?></option>
+                                    <option value="<?php echo $loan_types->id ?>" <?php echo $type == $loan_types->id ? "selected" : "" ?> ><?php echo $loan_types->loan_name . " (" . $loan_types->amount . ")" ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="form-group m-r-10">
-                            <select class="form-control">
-                                <option selected>Select Loan status</option>
-                                <option>Pending</option>
-                                <option>Active</option>
-                                <option>Finished</option>
-                                <option>Rejected</option>
+                            <select class="form-control" id="loan_status" name="loan_status">
+                                <?php $status = isset($_GET['loan_status']) ? $_GET['loan_status'] : '9'; ?>
+
+                                <option selected value="">Select Loan status</option>
+                                <option value="<?php echo LoanStatus::PENDING ?>"<?php echo (string)$status == (string)LoanStatus::PENDING ? "selected" : "" ?>>
+                                    Pending
+                                </option>
+                                <option value="<?php echo LoanStatus::ACTIVE ?>"<?php echo $status == LoanStatus::ACTIVE ? "selected" : "" ?>>
+                                    Active
+                                </option>
+                                <option value="<?php echo LoanStatus::FINISHED ?>"<?php echo $status == LoanStatus::FINISHED ? "selected" : "" ?>>
+                                    Finished
+                                </option>
+                                <option value="<?php echo LoanStatus::REJECTED ?>"<?php echo $status == LoanStatus::REJECTED ? "selected" : "" ?>>
+                                    Rejected
+                                </option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary m-r-5">Filter</button>
-                        <button type="reset" class="btn btn-sm btn-default">Clear</button>
+                        <button type="button" id="clear_form" class="btn btn-sm btn-default">Clear</button>
                     </form>
                 </div>
             </div>

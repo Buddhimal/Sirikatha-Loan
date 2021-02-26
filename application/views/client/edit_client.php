@@ -16,16 +16,6 @@
         <!-- begin panel -->
         <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
             <div class="panel-heading">
-<!--                <div class="panel-heading-btn">-->
-<!--                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i-->
-<!--                                class="fa fa-expand"></i></a>-->
-<!--                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i-->
-<!--                                class="fa fa-repeat"></i></a>-->
-<!--                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"-->
-<!--                       data-click="panel-collapse"><i class="fa fa-minus"></i></a>-->
-<!--                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"-->
-<!--                       data-click="panel-remove"><i class="fa fa-times"></i></a>-->
-<!--                </div>-->
                 <h4 class="panel-title">Client Details</h4>
             </div>
             <div class="panel-body">
@@ -128,17 +118,6 @@
                                 </div>
                             </div>
                         </div>
-<!--                        <div class="col-md-6">-->
-<!--                            <div class="form-group">-->
-<!--                                <label class="col-md-3 control-label">Monthly Income</label>-->
-<!--                                <div class="col-md-9">-->
-<!--                                    <input type="text" id="monthly_income" name="monthly_income" value="--><?php //echo $client->monthly_income ?><!--" class="form-control"-->
-<!--                                           placeholder="Monthly Income"/>-->
-<!--                                    <span id="monthly_income_span"></span>-->
-<!---->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Office Address</label>
@@ -388,8 +367,12 @@
                                 <label class="col-md-3 control-label">Loan Reason </label>
                                 <div class="col-md-9">
                                     <select name="loan_reason" id="loan_reason" class="form-control">
-                                        <option value="Personal Loan">Personal Loan</option>
-                                        <option value="Business Loan">Business Loan</option>
+                                        <option value="Personal Loan" <?php echo $client->loan_reason == "Personal Loan" ? "selected" : "" ?>>
+                                            Personal Loan
+                                        </option>
+                                        <option value="Business Loan" <?php echo $client->loan_reason == "Personal Loan" ? "selected" : "" ?>>
+                                            Business Loan
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -415,6 +398,7 @@
                                     <div class="col-md-9">
                                         <input type="text" id="business_monthly_income" name="business_monthly_income"
                                                class="form-control"
+                                               value="<?php echo $client->business_monthly_income ?>"
                                                placeholder="Business Monthly Income"/>
                                         <span id="business_monthly_income_span"></span>
 
@@ -428,6 +412,7 @@
                                     <div class="col-md-9">
                                         <input type="text" id="business_monthly_outcome" name="business_monthly_outcome"
                                                class="form-control"
+                                               value="<?php echo $client->business_monthly_outcome ?>"
                                                placeholder="Business Monthly Outcome"/>
                                         <span id="business_monthly_outcome_span"></span>
 
@@ -441,6 +426,7 @@
                                     <div class="col-md-9">
                                         <input type="text" id="business_profit" name="business_profit"
                                                class="form-control"
+                                               value="<?php echo $client->business_profit ?>"
                                                placeholder="Business Profit"/>
                                         <span id="business_profit_span"></span>
 
@@ -468,6 +454,7 @@
 <script>
     $(document).ready(function () {
         App.init();
+        $("#loan_reason").change();
     });
 
 
