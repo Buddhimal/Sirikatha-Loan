@@ -561,6 +561,7 @@ GROUP BY
     {
 
         $loan_id = base64_decode($this->input->get_post('loan_id'));
+        $client_id = base64_decode($this->input->get_post('client_id'));
 
         if ($this->input->post() != null && sizeof($this->input->post()) > 0) {
             $loan_id = $this->input->get_post('loan_id_pk');
@@ -585,7 +586,7 @@ GROUP BY
                 $data['msg'] = "Payment Added Successfully";
                 $data['class_alert'] = "alert-success";
 
-                redirect('make_payment?type=paid&loan_id=' . base64_encode($loan_id), 'refresh');
+                redirect('loan_profile?client_id=' . base64_encode($client_id) . '&active_tab=payment', 'refresh');
             }
         }
 

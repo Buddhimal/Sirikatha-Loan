@@ -6,6 +6,9 @@
 
 <?php
 
+$tab = isset($_GET['active_tab']) ? $_GET['active_tab'] : "loan";
+
+
 if (count($loan_list['pending_loans']) > 0) {
     $client = $loan_list['pending_loans'][0]['client_details'];
 } else {
@@ -140,7 +143,7 @@ if (count($loan_list['pending_loans']) > 0) {
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="default-tab-0_<?php echo $loan_details->id ?>">
+                                <div class="tab-pane" id="default-tab-0_<?php echo $loan_details->id ?>">
                                     <div class="form-horizontal">
                                         <h3 class="m-t-10"><i class="fa fa-money"></i> Loan Information</h3>
                                         <br>
@@ -611,13 +614,13 @@ if (count($loan_list['pending_loans']) > 0) {
                     <div class="panel-body">
                         <div class="col-md-12">
                             <ul class="nav nav-tabs">
-                                <li class="active">
+                                <li class="<?php echo $tab == 'loan' ? 'active' : '' ?>">
                                     <a href="#default-tab-0_<?php echo $loan_details->id ?>" data-toggle="tab">
                                         <span class="visible-xs">Loan</span>
                                         <span class="hidden-xs">Loan Information</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="<?php echo $tab == 'payment' ? 'active' : '' ?>">
                                     <a href="#default-tab-01_<?php echo $loan_details->id ?>" data-toggle="tab">
                                         <span class="visible-xs">Payments</span>
                                         <span class="hidden-xs">Payment Information</span>
@@ -655,7 +658,8 @@ if (count($loan_list['pending_loans']) > 0) {
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="default-tab-0_<?php echo $loan_details->id ?>">
+                                <div class="tab-pane <?php echo $tab == 'loan' ? ' fade active in' : '' ?> "
+                                     id="default-tab-0_<?php echo $loan_details->id ?>">
                                     <div class="form-horizontal">
                                         <h3 class="m-t-10"><i class="fa fa-money"></i> Loan Information</h3>
                                         <br>
@@ -874,7 +878,8 @@ if (count($loan_list['pending_loans']) > 0) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="default-tab-01_<?php echo $loan_details->id ?>">
+                                <div class="tab-pane <?php echo $tab == 'payment' ? ' fade active in' : '' ?>"
+                                     id="default-tab-01_<?php echo $loan_details->id ?>">
                                     <div class="form-horizontal">
                                         <h3 class="m-t-10"><i class="fa fa-money"></i> Payment Information</h3>
                                         <br>
@@ -928,7 +933,7 @@ if (count($loan_list['pending_loans']) > 0) {
                                             </div>
                                             <?php if ((string)$loan_details->loan_status == (string)LoanStatus::ACTIVE) { ?>
                                                 <a class="btn btn-primary pull-right"
-                                                   href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan_details->id) ?>">
+                                                   href="<?php echo base_url() ?>make_payment?client_id=<?php echo base64_encode($client->client_id) ?>&loan_id=<?php echo base64_encode($loan_details->id) ?>">
                                                     Make Payment
                                                 </a>
                                             <?php } ?>
