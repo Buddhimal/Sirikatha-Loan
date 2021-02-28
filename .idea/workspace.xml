@@ -156,7 +156,7 @@
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
       <workItem from="1613217584836" duration="55258000" />
-      <workItem from="1614015995103" duration="55928000" />
+      <workItem from="1614015995103" duration="56038000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -326,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614366344469</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add pay now button">
+      <created>1614532358970</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1614532358970</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +357,8 @@
     <MESSAGE value="Fix available group improvements fix" />
     <MESSAGE value="user group UI Change" />
     <MESSAGE value="Add filter option" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add filter option" />
+    <MESSAGE value="Add pay now button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add pay now button" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

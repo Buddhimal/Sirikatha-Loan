@@ -927,10 +927,10 @@ if (count($loan_list['pending_loans']) > 0) {
                                                 </table>
                                             </div>
                                             <?php if ((string)$loan_details->loan_status == (string)LoanStatus::ACTIVE) { ?>
-                                                <button class="pull-right"
-                                                        href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan_details->id) ?>">
+                                                <a class="btn btn-primary pull-right"
+                                                   href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan_details->id) ?>">
                                                     Make Payment
-                                                </button>
+                                                </a>
                                             <?php } ?>
                                         </div>
                                     </div>
