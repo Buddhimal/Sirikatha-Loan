@@ -904,11 +904,11 @@ if (count($loan_list['pending_loans']) > 0) {
                                                             <td><?php echo $payment->installments ?></td>
                                                             <td><?php echo $payment->payment_type ?></td>
                                                             <td><?php echo $payment->payment_date ?></td>
-                                                            <td><?php echo $payment->is_active == 1 ? "<span class='label label-primary'>Active</span>" : "<span class='label label-danger'>Canceled</span>" ?></td>
+                                                            <td><?php echo $payment->is_active == 1 ? "<span class='label label-primary'>Completed</span>" : "<span class='label label-danger'>Canceled</span>" ?></td>
                                                             <td><?php echo $payment->reason == "" ? "-" : $payment->reason ?></td>
                                                             <td>
                                                                 <?php if (in_array(SYS_CANCEL_PAYMENT, $permission_list))
-                                                                    if ($payment->is_active == 1) { ?>
+                                                                    if ($payment->is_active == 1 && (string)$loan_details->loan_status == (string)LoanStatus::ACTIVE) { ?>
                                                                         <a class="cancel"
                                                                            href="#modal-cancel"
                                                                            data-toggle="modal"
@@ -926,6 +926,12 @@ if (count($loan_list['pending_loans']) > 0) {
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <?php if ((string)$loan_details->loan_status == (string)LoanStatus::ACTIVE) { ?>
+                                                <button class="pull-right"
+                                                        href="<?php echo base_url() ?>make_payment?loan_id=<?php echo base64_encode($loan_details->id) ?>">
+                                                    Make Payment
+                                                </button>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>

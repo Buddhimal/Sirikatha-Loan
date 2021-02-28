@@ -5,12 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/edit_client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/edit_client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/loan/loan_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/loan_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/top_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/top_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/loan/client_loan_profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/loan_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loan_list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +156,7 @@
       <workItem from="1611948069388" duration="8693000" />
       <workItem from="1613215556870" duration="1526000" />
       <workItem from="1613217584836" duration="55258000" />
-      <workItem from="1614015995103" duration="53950000" />
+      <workItem from="1614015995103" duration="55928000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -323,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614289876094</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add filter option">
+      <created>1614366344467</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1614366344469</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +349,8 @@
     <MESSAGE value="View payments in client profile and cancel payment option" />
     <MESSAGE value="Fix available group improvements fix" />
     <MESSAGE value="user group UI Change" />
-    <option name="LAST_COMMIT_MESSAGE" value="user group UI Change" />
+    <MESSAGE value="Add filter option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add filter option" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
