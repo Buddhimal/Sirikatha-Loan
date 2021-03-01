@@ -143,7 +143,8 @@ if (count($loan_list['pending_loans']) > 0) {
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane" id="default-tab-0_<?php echo $loan_details->id ?>">
+                                <div class="tab-pane  fade active in"
+                                     id="default-tab-0_<?php echo $loan_details->id ?>">
                                     <div class="form-horizontal">
                                         <h3 class="m-t-10"><i class="fa fa-money"></i> Loan Information</h3>
                                         <br>

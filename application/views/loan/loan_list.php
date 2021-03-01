@@ -119,7 +119,7 @@
                             <td><?php echo $loan->last_installment_paid_date; ?></td>
                             <td>
 
-                                <?php if ($loan->pending_installments <= 0) echo "0"; else echo $loan->pending_installments; ?>
+                                <?php if ((string)$loan->loan_status == (string)LoanStatus::FINISHED) echo "0"; elseif ($loan->pending_installments <= 0) echo "0"; else echo $loan->pending_installments; ?>
 
                             </td>
                             <td style="text-align: center">
