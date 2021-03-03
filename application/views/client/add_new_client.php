@@ -257,6 +257,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Steward Office Telephone</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="steward_job_tp" name="steward_job_tp"
+                                           class="form-control"
+                                           placeholder="Steward Office Telephone"/>
+                                    <span id="steward_job_tp_span"></span>
+
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
