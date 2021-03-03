@@ -840,7 +840,7 @@ if (count($loan_list['pending_loans']) > 0) {
                                                 <div class="form-group">
                                                     <label class="col-md-4 control-label">Gender</label>
                                                     <div class="col-md-8">
-                                                        <div class="control-label todolist-title"><?php echo $client_details->gender == "male" ? "Male" : $client_details->gender == "female" ? "Female" : '-' ?></div>
+                                                        <div class="control-label todolist-title"><?php echo $client_details->gender == "Male" ? "Male" : $client_details->gender == "Female" ? "Female" : '-' ?></div>
                                                     </div>
                                                 </div>
                                             </div>

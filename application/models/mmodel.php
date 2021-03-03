@@ -323,6 +323,7 @@ class MModel extends CI_Model
                 $client_data['nic'] = $client_details->row()->nic;
                 $client_data['gender'] = $client_details->row()->gender;
                 $client_data['election_address'] = $client_details->row()->election_address;
+                $client_data['current_address'] = $client_details->row()->current_address;
                 $client_data['tp'] = $client_details->row()->tp;
                 $client_data['job_title'] = $client_details->row()->job_title;
                 $client_data['monthly_income'] = $client_details->row()->monthly_income;
