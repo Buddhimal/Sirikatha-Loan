@@ -1,4 +1,3 @@
-application/x-httpd-php database.php ( PHP script text )
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
@@ -86,3 +85,4 @@ $db['default']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
+
