@@ -51,7 +51,11 @@
                         </tr>
                         <tr class="">
                             <td class="field">Gender</td>
-                            <td><?php if($client->gender =='male' ) echo "Male"; else echo "Female" ?></td>
+                            <td><?php if ($client->gender == 'male') echo "Male"; else echo "Female" ?></td>
+                        </tr>
+                        <tr class="">
+                            <td class="field">NIC</td>
+                            <td><?php echo $client->nic ?></td>
                         </tr>
                         <tr class="">
                             <td class="field">Election Address</td>
