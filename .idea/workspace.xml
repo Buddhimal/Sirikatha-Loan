@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Bug Fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/client_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/client_profile.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,10 @@
       <workItem from="1613217584836" duration="55258000" />
       <workItem from="1614015995103" duration="58681000" />
       <workItem from="1614654976260" duration="6000" />
-      <workItem from="1614752040068" duration="1884000" />
+      <workItem from="1614752040068" duration="2885000" />
+      <workItem from="1616523200535" duration="62000" />
+      <workItem from="1616868690363" duration="962000" />
+      <workItem from="1616951470568" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -402,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614754069032</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Bug Fix">
+      <created>1614754302868</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1614754302868</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,5 +443,16 @@
     <MESSAGE value="Bug Fix" />
     <option name="LAST_COMMIT_MESSAGE" value="Bug Fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/models/mmodel.php</url>
+          <line>109</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
