@@ -14,7 +14,6 @@ class Dashboard extends CI_Controller
 
         if (is_login() == '') {
             redirect(site_url() . 'login');
-
         }
     }
 
