@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
       <workItem from="1623450051859" duration="951000" />
       <workItem from="1627219890857" duration="1116000" />
       <workItem from="1627914838498" duration="271000" />
-      <workItem from="1628265640457" duration="162000" />
+      <workItem from="1628265640457" duration="503000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -443,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628265791024</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="change configs">
+      <created>1628265890268</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1628265890268</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +482,8 @@
     <MESSAGE value="test Code" />
     <MESSAGE value="Bug Fix" />
     <MESSAGE value="added" />
-    <option name="LAST_COMMIT_MESSAGE" value="added" />
+    <MESSAGE value="change configs" />
+    <option name="LAST_COMMIT_MESSAGE" value="change configs" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
