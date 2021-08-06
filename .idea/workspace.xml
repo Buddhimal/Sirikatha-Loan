@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="Bug Fix">
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/dashboard.php" afterDir="false" />
+    <list default="true" id="efbb5d78-a32c-4ec6-a417-7a25909f736b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +158,16 @@
       <workItem from="1616523200535" duration="62000" />
       <workItem from="1616868690363" duration="962000" />
       <workItem from="1616951470568" duration="239000" />
-      <workItem from="1617043880412" duration="654000" />
+      <workItem from="1617043880412" duration="687000" />
+      <workItem from="1617643366658" duration="8000" />
+      <workItem from="1617789538151" duration="23000" />
+      <workItem from="1620420523455" duration="5416000" />
+      <workItem from="1620430986579" duration="1000" />
+      <workItem from="1620459954020" duration="1953000" />
+      <workItem from="1622750696999" duration="682000" />
+      <workItem from="1623450051859" duration="951000" />
+      <workItem from="1627219890857" duration="1116000" />
+      <workItem from="1627914838498" duration="271000" />
     </task>
     <task id="LOCAL-00001" summary="Done some changes">
       <created>1602352092295</created>
@@ -420,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617043946349</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Bug Fix">
+      <created>1617044917153</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1617044917153</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,20 +463,9 @@
     <MESSAGE value="Update Payment settings" />
     <MESSAGE value="Fix improvements" />
     <MESSAGE value="Buf Fix" />
-    <MESSAGE value="Bug Fix" />
     <MESSAGE value="test Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="test Code" />
+    <MESSAGE value="Bug Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/models/mmodel.php</url>
-          <line>109</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
